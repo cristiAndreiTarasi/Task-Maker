@@ -1,0 +1,40 @@
+.App_form {
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+
+    .App_input {
+        border: none;
+        width: 300px;
+        border: 1px solid #f2f2f2;
+        border-radius: 2px;
+    }
+    
+    .App_form_inline {
+        display: flex;
+        width: 900px;
+        justify-content: space-between;        
+        display: flex;
+        margin: 20px 0;
+
+        .App_form_group {
+            .App_input {
+                border: none;
+                width: 300px;
+                border: 1px solid #f2f2f2;
+                border-radius: 2px;
+                line-height: 30px;
+                margin-right: 10px;
+            }
+        }
+
+        .App_form_button {
+            all: unset;
+            background-color: cornflowerblue;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,52 @@
+{
+  "name": "Task_Maker",
+  "version": "1.0.0",
+  "description": "Task Creator and Manager Application",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cristiAndreiTarasi/Task-Maker.git"
+  },
+  "keywords": [],
+  "author": "Cristi Andrei Tarasi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cristiAndreiTarasi/Task-Maker/issues"
+  },
+  "homepage": "https://github.com/cristiAndreiTarasi/Task-Maker#readme",
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "browser-sync": "^2.26.7",
+    "css-loader": "^3.2.0",
+    "error-overlay-webpack-plugin": "^0.4.1",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.12.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
+    "terser-webpack-plugin": "^1.4.1",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7",
+    "webpack-dev-server": "^3.8.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "core-js": "^3.2.1",
+    "mini-css-extract-plugin": "^0.8.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-hot-loader": "^4.12.12",
+    "regenerator-runtime": "^0.13.3",
+    "webpack-merge": "^4.2.2"
+  }
+}

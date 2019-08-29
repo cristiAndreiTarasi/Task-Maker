@@ -1,0 +1,62 @@
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+.App {
+    display: flex;
+    flex-direction: column; /*temporary*/
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    width: 800px;
+    margin: 0 auto;
+
+    .App_heading {
+        font-weight: 300;
+        font-size: 4.5rem;
+    }
+
+    .App_copy {
+        font-weight: 300;
+        font-size: 1.5rem;   
+    }
+
+    .App_button_primary {
+        all: unset;
+        // background-color: #d6d5d4;
+        color: #666;
+        background-color: cornflowerblue;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 2px;
+        cursor: pointer;
+
+        &:first-of-type {
+            margin-right: 10px;
+        }
+
+        &:hover { 
+            background-color: darken(cornflowerblue, 20%); 
+            color: #545454; 
+        }
+    }
+
+    .App_button_danger {
+        all: unset;
+        // background-color: #d6d5d4;
+        background-color: indianred;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 2px;
+        cursor: pointer;
+
+        &:first-of-type {
+            margin-right: 10px;
+        }
+
+        &:hover { 
+            background-color: darken(indianred, 20%);; 
+            color: #545454; 
+        }
+    }
+}

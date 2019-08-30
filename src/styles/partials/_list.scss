@@ -1,34 +1,23 @@
 .App_list {
-    /*width: 500px;*/
+    width: 500px;
     padding: 0;
-    margin: 20px 0;
+    margin: 20px auto;
     list-style: none;
 
-    .App_list_item {
-        /*padding: 5px 10px;*/
-        display: inline-block;
-        width: 40px;
-        height: 40px;
-        text-align: center;
-        line-height: 40px;
-        margin: 0 10px;
-        cursor: pointer;
+    $vendors: 'webkit' 'moz' 'ms';
 
-        background-color: cornflowerblue;
-        border-radius: 2px; 
-        color: #fff;
-    }
+    @each $vendor in $vendors {
+        &_item {
+            display: -#{$vendor}-flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 40px;
+            border-radius: 2px; 
 
-    .App_list_item_icons {
-        width: 50px;
-        display: flex;
-        justify-content: space-between;
-        padding: 0;
-        margin: 0;
-
-        .App_list_item_icons i {
-            line-height: 26px;
-            cursor: pointer;
+            & i { 
+                cursor: pointer; 
+                color: #555;
+            }
         }
     }
 }

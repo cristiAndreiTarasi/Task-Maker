@@ -1,40 +1,33 @@
 .App_form {
     width: 500px;
+    height: 40px;
     display: flex;
     justify-content: space-between;
+    align-self: center;
 
     .App_input {
         border: none;
-        width: 300px;
+        width: 70%;
         border: 1px solid #f2f2f2;
         border-radius: 2px;
-    }
-    
-    .App_form_inline {
-        display: flex;
-        width: 900px;
-        justify-content: space-between;        
-        display: flex;
-        margin: 20px 0;
+        outline: none;
+        background-color: #dddddd;
 
-        .App_form_group {
-            .App_input {
-                border: none;
-                width: 300px;
-                border: 1px solid #f2f2f2;
-                border-radius: 2px;
-                line-height: 30px;
-                margin-right: 10px;
+        $vendors: 'webkit' 'moz' 'ms';
+        @each $vendor in $vendors {
+            &::-#{$vendor}-input-placeholder {
+                color: rgba(0, 0, 0, 0.3);
+                padding-left: 20px;
             }
         }
+    }
 
-        .App_form_button {
-            all: unset;
-            background-color: cornflowerblue;
-            color: #fff;
-            padding: 5px 10px;
-            border-radius: 2px;
-            cursor: pointer;
-        }
+    .App_form_button {
+        all: unset;
+        background-color: cornflowerblue;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 2px;
+        cursor: pointer;
     }
 }

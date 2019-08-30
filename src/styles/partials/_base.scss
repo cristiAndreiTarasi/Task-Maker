@@ -10,15 +10,25 @@ body {
     margin: 20px 0;
     width: 800px;
     margin: 0 auto;
+    background-color: #eee;
+
+    .header {
+        margin-bottom: 50px;
+    }
 
     .App_heading {
         font-weight: 300;
         font-size: 4.5rem;
+
+        &.center {
+            text-align: center;
+        }
     }
 
     .App_copy {
         font-weight: 300;
-        font-size: 1.5rem;   
+        font-size: 1.3rem;   
+        color: #555;
     }
 
     .App_button_primary {

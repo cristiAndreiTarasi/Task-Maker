@@ -1,16 +1,21 @@
 body {
     font-family: 'Lato', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*background-color: red;*/
 }
 
 .App {
     display: flex;
-    flex-direction: column; /*temporary*/
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin: 20px 0;
+    flex-direction: column;
+    justify-content: center;
     width: 800px;
     margin: 0 auto;
-    background-color: #eee;
+    background-color: #3c424a;
+    border-radius: 5px;
+    border: none;
 
     .header {
         margin-bottom: 50px;
@@ -19,21 +24,19 @@ body {
     .App_heading {
         font-weight: 300;
         font-size: 4.5rem;
+        color: #cccdce;
 
-        &.center {
-            text-align: center;
-        }
+        &.center { text-align: center; }
     }
 
     .App_copy {
         font-weight: 300;
         font-size: 1.3rem;   
-        color: #555;
+        color: #cccdce;
     }
 
     .App_button_primary {
         all: unset;
-        // background-color: #d6d5d4;
         color: #666;
         background-color: cornflowerblue;
         color: #fff;

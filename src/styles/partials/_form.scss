@@ -8,15 +8,15 @@
     .App_input {
         border: none;
         width: 70%;
-        border: 1px solid #f2f2f2;
+        border: 1px solid #2e3238;
         border-radius: 2px;
         outline: none;
-        background-color: #dddddd;
+        background-color: #343a40;
 
         $vendors: 'webkit' 'moz' 'ms';
         @each $vendor in $vendors {
             &::-#{$vendor}-input-placeholder {
-                color: rgba(0, 0, 0, 0.3);
+                color: #484f59;
                 padding-left: 20px;
             }
         }

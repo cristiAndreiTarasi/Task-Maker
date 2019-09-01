@@ -1,0 +1,15 @@
+
+.header {
+    text-align: center;
+
+    .heading {
+        font-size: 1.5rem;
+        padding: 10px 0;
+        color: #727983;
+    }
+
+    .divider {
+        .dark { background-color: #343a40; height: 1px; }
+        .light { background-color: #484f59; height: 1px; }
+    }
+} 

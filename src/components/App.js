@@ -16,7 +16,7 @@ export default hot(() => {
     return (
         <TodosContext.Provider value={{ state, dispatch }}>
             <div className="App">
-                <Header /> 
+                <Header />
                 <Form />
                 <List />
             </div>

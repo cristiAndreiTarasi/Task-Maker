@@ -10,9 +10,20 @@ export default function todosReducer (state, action) {
                     { id: uuid(), task: action.payload, completed: false }
                 ]
             };
-            break;
+
+        case "COMPLETED_TODO":
+            let completedTodos = state.todos.map(t => (
+                t.id === action.payload.id
+                    ? { ...t, completed: !action.payload.completed}
+                    : t
+            ));
+
+            return {
+                ...state,
+                todos: completedTodos,
+            };
+
         default:
-            // statements_def
-            break;
+            return state;
     }
 }

@@ -1,24 +1,31 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import todosContext from './context';
+import ActionIcons from './ActionIcons';
 
-export default () => { 
-    const { state, dispatch } = useContext(todosContext); 
+export default () => {
+    const { state, dispatch } = useContext(todosContext);
 
     return (
         <ul className="App_list">
             {state.todos.map(todo => (
                 <li className="App_list_item" key={todo.id}>
                     <div className="main">
-                        <p className="App_copy">{todo.task}</p>
-                        <ul className="menu">
-                            <li className="menu-item"><i className="fas fa-edit"></i></li>
-                            <li className="menu-item"><i className="fas fa-trash"></i></li>
-                            <li className="menu-item"><i className="fas fa-thumbtack rotate-left"></i></li>
-                            <li className="menu-item"><i className="fas fa-sticky-note"></i></li>
-                        </ul>
+                        <div className="task-group">
+                            <input
+                                className={`${todo.completed && 'lineThrough'}`}
+                                type="checkbox"
+                                checked={todo.completed}
+                                onChange={() => dispatch({
+                                    type: "COMPLETED_TODO",
+                                    payload: todo,
+                                })}
+                            />
+                            <p className="App_copy">{todo.task}</p>
+                        </div>
+                        <ActionIcons />
                     </div>
 
-                    <div className="status">
+                    <div className="status-bar">
                         <p>created on 12/04/1908</p>
                     </div>
 

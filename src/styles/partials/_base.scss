@@ -4,6 +4,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #8f9db0;
 }
 
 .App {
@@ -30,7 +31,7 @@ body {
 
     .App_copy {
         font-weight: 300;
-        font-size: 1.3rem;   
+        font-size: 1.3rem;
         color: #cccdce;
     }
 
@@ -47,9 +48,9 @@ body {
             margin-right: 10px;
         }
 
-        &:hover { 
-            background-color: darken(cornflowerblue, 20%); 
-            color: #545454; 
+        &:hover {
+            background-color: darken(cornflowerblue, 20%);
+            color: #545454;
         }
     }
 
@@ -66,9 +67,9 @@ body {
             margin-right: 10px;
         }
 
-        &:hover { 
-            background-color: darken(indianred, 20%);; 
-            color: #545454; 
+        &:hover {
+            background-color: darken(indianred, 20%);;
+            color: #545454;
         }
     }
 }

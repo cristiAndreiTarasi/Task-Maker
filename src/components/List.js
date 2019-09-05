@@ -28,13 +28,15 @@ export default () => {
                         <ActionIcons />
                     </div>
 
-                    <div className="status-bar">
-                        <p>created on
-                            <span>{todo.creationDateTime.date} </span>
-                            at
-                            <span>{todo.creationDateTime.time}</span>
-                        </p>
-                    </div>
+                    {!todo.completed ? (
+                        <div className="status-bar">
+                            <p>created on
+                                <span> {todo.creationDateTime.date} </span>
+                                at
+                                <span> {todo.creationDateTime.time}</span>
+                            </p>
+                        </div>
+                    ) : null}
 
                     <div className="divider">
                         <div className="dark"></div>

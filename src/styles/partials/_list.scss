@@ -40,7 +40,7 @@ $vendors: 'webkit' 'moz' 'ms' 'o';
                     margin: 0px 10px 0px 0px;
                     -webkit-appearance: none;background-color: #fafafa;
 	                  border: 1px solid indianred;
-                    background-color: transparentize(indianred, 0.8);
+                    background-color: transparentize(indianred, 0.9);
 	                  padding: 9px;
 	                  border-radius: 50%;
                     outline: none;
@@ -50,13 +50,14 @@ $vendors: 'webkit' 'moz' 'ms' 'o';
                     margin: 0px 10px 0px 0px;
                     -webkit-appearance: none;background-color: #fafafa;
 	                  border: 1px solid lightgreen;
-                    background-color: transparentize(lightgreen, 0.8);
+                    background-color: transparentize(lightgreen, 0.9);
 	                  padding: 9px;
 	                  border-radius: 50%;
                 }
 
                 .lineThrough {
                     text-decoration: line-through;
+                    color: #727983;
 }
             }
 
@@ -77,6 +78,10 @@ $vendors: 'webkit' 'moz' 'ms' 'o';
             padding: 5px 0 5px 20px;
             /* background-color: #1d2029; */
             color: #727983;
+
+            p span {
+                color: lighten(#727983, 10%);
+            }
         }
 
         .dark { background-color: #343a40; height: 1px; }

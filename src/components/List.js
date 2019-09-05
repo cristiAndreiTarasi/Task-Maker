@@ -12,21 +12,28 @@ export default () => {
                     <div className="main">
                         <div className="task-group">
                             <input
-                                className={`${todo.completed && 'lineThrough'}`}
                                 type="checkbox"
                                 checked={todo.completed}
                                 onChange={() => dispatch({
-                                    type: "COMPLETED_TODO",
+                                    type: "TOGGLED_TODO",
                                     payload: todo,
                                 })}
                             />
-                            <p className="App_copy">{todo.task}</p>
+                            <p
+                                className={`App_copy ${todo.completed && 'lineThrough'}`}
+                            >
+                                {todo.task}
+                            </p>
                         </div>
                         <ActionIcons />
                     </div>
 
                     <div className="status-bar">
-                        <p>created on 12/04/1908</p>
+                        <p>created on
+                            <span>{todo.creationDateTime.date} </span>
+                            at
+                            <span>{todo.creationDateTime.time}</span>
+                        </p>
                     </div>
 
                     <div className="divider">

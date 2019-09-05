@@ -7,7 +7,13 @@ export default function () {
 
     function handleSubmit (e) {
         e.preventDefault();
-        dispatch({ type: 'NEW_TODO', payload: value })
+        dispatch({
+            type: 'NEW_TODO',
+            payload: {
+                value,
+                date: new Date()
+            }
+        })
     }
 
     return (

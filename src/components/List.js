@@ -15,7 +15,7 @@ export default () => {
                                 type="checkbox"
                                 checked={todo.completed}
                                 onChange={() => dispatch({
-                                    type: "TOGGLED_TODO",
+                                    type: "TOGGLE_TASK",
                                     payload: todo,
                                 })}
                             />
@@ -25,7 +25,7 @@ export default () => {
                                 {todo.task}
                             </p>
                         </div>
-                        <ActionIcons />
+                        <ActionIcons todo={todo} />
                     </div>
 
                     {!todo.completed ? (

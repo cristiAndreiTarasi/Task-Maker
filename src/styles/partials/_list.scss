@@ -56,9 +56,11 @@ $vendors: 'webkit' 'moz' 'ms' 'o';
                 }
 
                 .lineThrough {
+                    transition: all 0.5s ease-in-out;
                     text-decoration: line-through;
                     color: #727983;
-}
+                    font-weight: 900;
+                }
             }
 
             & i {
@@ -69,8 +71,12 @@ $vendors: 'webkit' 'moz' 'ms' 'o';
             .menu {
                 display: inherit;
                 justify-content: space-between;
-                /*background-color: red;*/
                 width: 100px;
+
+                &-item:hover i {
+                    color: lighten(#727983, 20%);
+                    transition: all 0.5s ease-in-out;
+                }
             }
         }
 

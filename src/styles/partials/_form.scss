@@ -24,10 +24,15 @@
 
     .App_form_button {
         all: unset;
-        background-color: cornflowerblue;
-        color: #fff;
+        background-color: #727983;
+        color: lighten(#727983, 40%);
+        font-family: 'Lato', sans-serif;
         padding: 5px 10px;
         border-radius: 2px;
         cursor: pointer;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            background-color: cornflowerblue;}
     }
 }

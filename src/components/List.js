@@ -1,39 +1,39 @@
 import React, { useState, useContext } from 'react';
-import todosContext from './context';
+import tasksContext from './context';
 import ActionIcons from './ActionIcons';
 
 export default () => {
-    const { state, dispatch } = useContext(todosContext);
+    const { state, dispatch } = useContext(tasksContext);
 
     return (
         <ul className="App_list">
-            {state.todos.map(todo => (
-                <li className="App_list_item" key={todo.id}>
+            {state.tasks.map(task => (
+                <li className="App_list_item" key={task.id}>
                     <div className="main">
                         <div className="task-group">
                             <input
                                 type="checkbox"
-                                checked={todo.completed}
+                                checked={task.completed}
                                 onChange={() => dispatch({
                                     type: "TOGGLE_TASK",
-                                    payload: todo,
+                                    payload: task,
                                 })}
                             />
                             <p
-                                className={`App_copy ${todo.completed && 'lineThrough'}`}
+                                className={`App_copy ${task.completed && 'lineThrough'}`}
                             >
-                                {todo.task}
+                                {task.text}
                             </p>
                         </div>
-                        <ActionIcons todo={todo} />
+                        <ActionIcons task={task} />
                     </div>
 
-                    {!todo.completed ? (
+                    {!task.completed ? (
                         <div className="status-bar">
                             <p>created on
-                                <span> {todo.creationDateTime.date} </span>
+                                <span> {task.creationDateTime.date} </span>
                                 at
-                                <span> {todo.creationDateTime.time}</span>
+                                <span> {task.creationDateTime.time}</span>
                             </p>
                         </div>
                     ) : null}

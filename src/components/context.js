@@ -1,11 +1,11 @@
 import { createContext } from 'react';
 import uuid from 'uuidv4';
 
-const todosContext = createContext({
-    todos: [
+const tasksContext = createContext({
+    tasks: [
         {
             id: uuid(),
-            task: 'Buy Milk',
+            text: 'Buy Milk',
             completed: false,
             creationDateTime: {
                 date: undefined,
@@ -14,7 +14,7 @@ const todosContext = createContext({
         },
         {
             id: uuid(),
-            task: 'Take the Medicines',
+            text: 'Take the Medicines',
             completed: false,
             creationDateTime: {
                 date: undefined,
@@ -23,7 +23,7 @@ const todosContext = createContext({
         },
         {
             id: uuid(),
-            task: 'Walk the Dog',
+            text: 'Walk the Dog',
             completed: false,
             creationDateTime: {
                 date: undefined,
@@ -31,6 +31,8 @@ const todosContext = createContext({
             }
         },
     ],
+
+    currentTask: {}
 });
 
-export default todosContext;
+export default tasksContext;

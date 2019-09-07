@@ -1,19 +1,39 @@
-import React, { useState, useContext } from 'react';
-import TodosContext from './context';
+import React, { useState, useEffect, useContext } from 'react';
+import tasksContext from './context';
 
 export default function () {
     const [value, setValue] = useState('');
-    const { dispatch } = useContext(TodosContext);
+    const { state: { currentTask = {} }, dispatch } = useContext(tasksContext);
+
+    useEffect(() => {
+        currentTask.text 
+            ? setValue(currentTask.text)
+            : setValue('') 
+    }, [currentTask.text]);
 
     function handleSubmit (e) {
         e.preventDefault();
-        dispatch({
-            type: 'NEW_TASK',
-            payload: {
-                value,
-                date: new Date()
+
+        if (currentTask.text) {
+            dispatch({
+                type: 'UPDATE_TASK',
+                payload: value 
+            })
+        }
+        else {
+            if (value === '') return
+            else {
+                dispatch({
+                    type: 'NEW_TASK',
+                    payload: {
+                        value,
+                        date: new Date()
+                    }
+                });
             }
-        })
+        }
+
+        setValue('');
     }
 
     return (

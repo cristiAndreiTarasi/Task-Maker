@@ -70,12 +70,26 @@ $vendors: 'webkit' 'moz' 'ms' 'o';
             // Icons
             .menu {
                 display: inherit;
-                justify-content: space-between;
+                justify-content: flex-end;
                 width: 100px;
 
+                &-item {
+                    padding: 0 4px;
+                }
+
                 &-item:hover i {
-                    color: lighten(#727983, 20%);
-                    transition: all 0.5s ease-in-out;
+                    transition: all 0.3s ease-in-out;
+                    $icons: 'trash' 'edit' 'thumbtack' 'sticky-note';
+                    $colors: 'indianred' 'lightgreen' 'cornflowerblue' 'hotpink';
+
+                    @each $icon in $icons {
+                        &.fa-#{$icon} {
+                            @if $icon == 'trash' { color: indianred; }
+                            @if $icon == 'edit' { color: lightgreen; }
+                            @if $icon == 'thumbtack' { color: cornflowerblue; }
+                            @if $icon == 'sticky-note' { color: hotpink; }
+                        }
+                    }
                 }
             }
         }

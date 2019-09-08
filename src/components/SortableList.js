@@ -1,21 +1,20 @@
-import React, { useState, useContext } from 'react';
-import tasksContext from './context';
+import React, { useState } from 'react';
 import ActionIcons from './ActionIcons';
 import SortableListContainer from './SortableListContainer';
 import { arrayMove } from "react-sortable-hoc";
 
-export default function () {
-    const { state } = useContext(tasksContext);
-    const [tasks, setTasks] = useState(state.tasks);
+export default function ({ state, dispatch }) {
+    const [theState, setTheState] = useState(state.tasks);
 
     function onSortEnd({ oldIndex, newIndex }) {
-        setTasks(arrayMove(tasks, oldIndex, newIndex));
+        setTheState(arrayMove(theState, oldIndex, newIndex));
     } 
 
     return (
         <ul className="App_list">
             <SortableListContainer 
-                tasks={tasks}
+                state={theState}
+                dispatch={dispatch}
                 onSortEnd={onSortEnd}
             />
         </ul>

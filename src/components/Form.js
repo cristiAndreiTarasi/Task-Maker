@@ -1,9 +1,7 @@
-import React, { useState, useEffect, useContext } from 'react';
-import tasksContext from './context';
+import React, { useState, useEffect } from 'react';
 
-export default function () {
+export default function ({ state: { currentTask = {} }, dispatch }) {
     const [value, setValue] = useState('');
-    const { state: { currentTask = {} }, dispatch } = useContext(tasksContext);
 
     useEffect(() => {
         currentTask.text 

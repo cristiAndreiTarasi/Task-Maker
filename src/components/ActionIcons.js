@@ -1,9 +1,6 @@
 import React, { useContext } from 'react';
-import tasksContext from './context';
 
-export default function ({ task }) {
-    const { dispatch } = useContext(tasksContext);
-
+export default function ({ task, dispatch }) {
     return (
         <ul className="menu">
             {!task.completed && (

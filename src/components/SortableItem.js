@@ -1,11 +1,8 @@
 import React, { useState, useContext } from 'react';
-import tasksContext from './context';
 import ActionIcons from './ActionIcons';
 import { SortableElement } from "react-sortable-hoc";
 
-const SortableItem =  SortableElement(({ task }) => {
-    const { dispatch } = useContext(tasksContext);
-
+const SortableItem =  SortableElement(({ task, dispatch }) => {
     return (
         <li className="App_list_item" key={task.id}>
             <div className="main">
@@ -24,7 +21,10 @@ const SortableItem =  SortableElement(({ task }) => {
                         {task.text}
                     </p>
                 </div>
-                <ActionIcons task={task} />
+                <ActionIcons 
+                    task={task} 
+                    dispatch={dispatch}
+                />
             </div>
 
             {!task.completed ? (

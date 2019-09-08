@@ -1,8 +1,8 @@
 // starter imports
-import React, { useContext, useReducer } from 'react';
+import React, { useReducer } from 'react';
 import { hot } from 'react-hot-loader/root';
-import TodosContext from './context';
-import todosReducer from './reducer';
+import tasksReducer from './reducer';
+import tasksContext from './context';
 
 // components
 import Header from './Header';
@@ -10,16 +10,19 @@ import Form from './Form';
 import SortableList from './SortableList';
 
 export default hot(() => {
-    const AppContext = useContext(TodosContext);
-    const [state, dispatch] = useReducer(todosReducer, AppContext);
+    const [state, dispatch] = useReducer(tasksReducer, tasksContext);
 
     return (
-        <TodosContext.Provider value={{ state, dispatch }}>
-            <div className="App">
-                <Header />
-                <Form />
-                <SortableList />
-            </div>
-        </TodosContext.Provider>
+        <div className="App">
+            <Header />
+            <Form  
+                state={state}
+                dispatch={dispatch}
+            />
+            <SortableList   
+                state={state}
+                dispatch={dispatch}
+            />
+        </div>
     );
 });

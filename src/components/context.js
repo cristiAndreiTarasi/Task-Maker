@@ -1,7 +1,6 @@
-import React, { createContext } from 'react';
 import uuid from 'uuidv4';
 
-const tasksContext = createContext({
+const tasksContext = {
     tasks: [
         {
             id: uuid(),
@@ -33,6 +32,6 @@ const tasksContext = createContext({
     ],
 
     currentTask: {},
-});
+};
 
 export default tasksContext;

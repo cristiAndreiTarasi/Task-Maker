@@ -40,8 +40,6 @@ export default function tasksReducer (state, action) {
 
         /********** Capture current task action **********/
         case 'CAPTURE_CURRENT_TASK':
-            
-
             return {
                 ...state,
                 currentTask: action.payload

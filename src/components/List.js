@@ -9,7 +9,10 @@ export default () => {
     return (
         <ul className="App_list">
             {state.tasks.map(task => (
-                <ListItem task={task} />
+                <ListItem 
+                    key={task.id}
+                    task={task} 
+                />
             ))}
         </ul>
     );

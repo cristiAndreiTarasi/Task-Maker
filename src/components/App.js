@@ -7,7 +7,7 @@ import todosReducer from './reducer';
 // components
 import Header from './Header';
 import Form from './Form';
-import List from './List';
+import SortableList from './SortableList';
 
 export default hot(() => {
     const AppContext = useContext(TodosContext);
@@ -18,7 +18,7 @@ export default hot(() => {
             <div className="App">
                 <Header />
                 <Form />
-                <List />
+                <SortableList />
             </div>
         </TodosContext.Provider>
     );

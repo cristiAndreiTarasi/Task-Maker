@@ -1,8 +1,9 @@
 import React, { useState, useContext } from 'react';
 import tasksContext from './context';
 import ActionIcons from './ActionIcons';
+import { SortableElement } from "react-sortable-hoc";
 
-export default function ({ task }) {
+const SortableItem =  SortableElement(({ task }) => {
     const { dispatch } = useContext(tasksContext);
 
     return (
@@ -42,8 +43,8 @@ export default function ({ task }) {
             </div>
         </li>  
     );
-}
+})
 
-
+export default SortableItem;
 
 

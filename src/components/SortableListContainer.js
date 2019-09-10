@@ -1,9 +1,9 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import ActionIcons from './ActionIcons';
 import SortableItem from './SortableItem';
 import { SortableContainer } from "react-sortable-hoc";
 
-const SortableList = SortableContainer(({ state, dispatch }) => {
+const SortableList = SortableContainer(({ state }) => {
 
     return (
         <ul className="App_list">
@@ -12,7 +12,6 @@ const SortableList = SortableContainer(({ state, dispatch }) => {
                     key={task.id}
                     index={index}
                     task={task} 
-                    dispatch={dispatch}
                 />
             ))}
         </ul>

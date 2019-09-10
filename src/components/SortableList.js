@@ -3,8 +3,8 @@ import ActionIcons from './ActionIcons';
 import SortableListContainer from './SortableListContainer';
 import { arrayMove } from "react-sortable-hoc";
 
-export default function ({ state, dispatch }) {
-    const [theState, setTheState] = useState(state.tasks);
+export default function ({ state }) {
+    const [theState, setTheState] = useState(state);
 
     function onSortEnd({ oldIndex, newIndex }) {
         setTheState(arrayMove(theState, oldIndex, newIndex));
@@ -14,7 +14,6 @@ export default function ({ state, dispatch }) {
         <ul className="App_list">
             <SortableListContainer 
                 state={theState}
-                dispatch={dispatch}
                 onSortEnd={onSortEnd}
             />
         </ul>

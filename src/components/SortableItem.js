@@ -1,30 +1,19 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import ActionIcons from './ActionIcons';
 import { SortableElement } from "react-sortable-hoc";
 
-const SortableItem =  SortableElement(({ task, dispatch }) => {
+const SortableItem =  SortableElement(({ task }) => {
     return (
         <li className="App_list_item" key={task.id}>
             <div className="main">
                 <div className="task-group">
-                    <input
-                        type="checkbox"
-                        checked={task.completed}
-                        onChange={() => dispatch({
-                            type: "TOGGLE_TASK",
-                            payload: task,
-                        })}
-                    />
-                    <p
-                        className={`App_copy ${task.completed && 'lineThrough'}`}
-                    >
+                    <input type="checkbox" checked={task.completed} />
+                    <p className={`App_copy ${task.completed && 'lineThrough'}`}>
                         {task.text}
                     </p>
                 </div>
-                <ActionIcons 
-                    task={task} 
-                    dispatch={dispatch}
-                />
+                
+                <ActionIcons task={task} />
             </div>
 
             {!task.completed ? (

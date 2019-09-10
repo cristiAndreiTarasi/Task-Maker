@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export default function ({ state: { currentTask = {} }, dispatch }) {
+export default function ({ currentTask }) {
     const [value, setValue] = useState('');
 
     useEffect(() => {
@@ -12,24 +12,8 @@ export default function ({ state: { currentTask = {} }, dispatch }) {
     function handleSubmit (e) {
         e.preventDefault();
 
-        if (currentTask.text) {
-            dispatch({
-                type: 'UPDATE_TASK',
-                payload: value 
-            })
-        }
-        else {
-            if (value === '') return
-            else {
-                dispatch({
-                    type: 'NEW_TASK',
-                    payload: {
-                        value,
-                        date: new Date()
-                    }
-                });
-            }
-        }
+        if (currentTask.text) {}
+        else {}
 
         setValue('');
     }

@@ -1,20 +1,38 @@
 import React, { useState, useEffect } from 'react';
+import uuid from 'uuidv4';
 
-export default function ({ currentTask }) {
+export default function (state) {
     const [value, setValue] = useState('');
 
-    useEffect(() => {
-        currentTask.text 
-            ? setValue(currentTask.text)
-            : setValue('') 
-    }, [currentTask.text]);
+    function createNewTask (taskText) {
+        const date = new Date();
+
+        let day = date.getDate().toString().length <= 1 ? '0' + date.getDate() : date.getDate();
+        let month = date.getMonth().toString().length <= 1 ? `0${parseInt(date.getMonth() + 1)}` : date.getMonth();
+        let year = date.getFullYear().toString().length <= 1 ? '0' + date.getFullYear() : date.getFullYear();
+        let hours = date.getHours().toString().length <= 1 ? '0' + date.getHours() : date.getHours();
+        let minutes = date.getMinutes().toString().length <= 1 ? '0' + date.getMinutes() : date.getMinutes();
+        let seconds = date.getSeconds().toString().length <= 1 ? '0' + date.getSeconds() : date.getSeconds();
+
+        let newTask = {
+            id: uuid(),
+            text: taskText,
+            completed: false,
+            creationDateTime: {
+                date: `${day}/${month}/${year}`,
+                time: `${hours}:${minutes}:${seconds}`
+            }
+        };
+
+        return {
+            ...state,
+            tasks: [ ...state.tasks, newTask ],
+        };
+    }
 
     function handleSubmit (e) {
         e.preventDefault();
-
-        if (currentTask.text) {}
-        else {}
-
+        createNewTask(value);
         setValue('');
     }
 

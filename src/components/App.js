@@ -1,5 +1,5 @@
 // starter imports
-import React from 'react';
+import React, { useState } from 'react';
 import { hot } from 'react-hot-loader/root';
 import tasksContext from './context';
 
@@ -8,12 +8,19 @@ import Header from './Header';
 import Form from './Form';
 import SortableList from './SortableList';
 
-export default hot(() => {
+function App () {
+    const [state, setState] = useState(tasksContext);
+
     return (
         <div className="App">
             <Header />
-            <Form currentTask={tasksContext.currentTask} />
-            <SortableList state={tasksContext.tasks} />
+            <Form
+                state={state}
+                setState={setState}
+            />
+            <SortableList state={state} />
         </div>
     );
-});
+};
+
+export default hot(App);

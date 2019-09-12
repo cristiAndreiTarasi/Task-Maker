@@ -11,9 +11,10 @@ import List from './List';
 
 function App () {
     const [state, setState] = useState(tasksContext);
+    const [alteredState, setAlteredState] = useState(state.tasks);
 
     function onSortEnd({ oldIndex, newIndex }) {
-        setState(arrayMove(state, oldIndex, newIndex));
+        setAlteredState(arrayMove(alteredState, oldIndex, newIndex));
     }
 
     return (
@@ -26,7 +27,7 @@ function App () {
 
             <ul className="App_list">
                 <List 
-                    state={state}
+                    state={alteredState}
                     onSortEnd={onSortEnd}
                 />
             </ul>

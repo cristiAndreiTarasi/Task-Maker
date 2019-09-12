@@ -5,7 +5,7 @@ import ListItem from './ListItem';
 const List = SortableContainer(({ state }) => {
     return (
         <ul className="App_list">
-            {state.tasks.map((task, index) => (
+            {state.map((task, index) => (
                 <ListItem
                     key={task.id} 
                     index={index} 

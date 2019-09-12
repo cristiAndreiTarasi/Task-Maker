@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import uuid from 'uuidv4';
 
-export default function (state) {
+export default function ({state}) {
     const [value, setValue] = useState('');
 
     function createNewTask (taskText) {

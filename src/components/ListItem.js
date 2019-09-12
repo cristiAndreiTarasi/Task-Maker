@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ActionIcons from './ActionIcons';
+import { SortableElement } from "react-sortable-hoc";
 
-export default function ({ task }) {
+const ListItem = SortableElement(({ task }) => {
     return (
         <li className="App_list_item" key={task.id}>
             <div className="main">
@@ -31,6 +32,6 @@ export default function ({ task }) {
             </div>
         </li>  
     );
-}
+});
 
-
+export default ListItem;

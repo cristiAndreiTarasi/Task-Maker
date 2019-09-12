@@ -1,6 +1,7 @@
 // starter imports
 import React, { useState, useEffect } from 'react';
 import { hot } from 'react-hot-loader/root';
+import { arrayMove } from "react-sortable-hoc";
 import tasksContext from './context';
 
 // components
@@ -11,6 +12,10 @@ import List from './List';
 function App () {
     const [state, setState] = useState(tasksContext);
 
+    function onSortEnd({ oldIndex, newIndex }) {
+        setState(arrayMove(state, oldIndex, newIndex));
+    }
+
     return (
         <div className="App">
             <Header />
@@ -18,7 +23,13 @@ function App () {
                 state={state}
                 setState={setState}
             />
-            <List state={state} />
+
+            <ul className="App_list">
+                <List 
+                    state={state}
+                    onSortEnd={onSortEnd}
+                />
+            </ul>
         </div>
     );
 };

@@ -23,6 +23,7 @@ $vendors: 'webkit' 'moz' 'ms' 'o';
             @include flexVendors;
 
             justify-content: space-between;
+            padding: 0 20px;
             align-items: center;
             height: 40px;
             border-radius: 2px;
@@ -31,7 +32,6 @@ $vendors: 'webkit' 'moz' 'ms' 'o';
 
             .task-group {
                 display: flex;
-                // background-color: red;
                 display: inherit;
                 width: 100%;
                 align-items: center;

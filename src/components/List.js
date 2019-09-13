@@ -9,7 +9,7 @@ const List = SortableContainer(({ state }) => {
                 <ListItem
                     key={task.id} 
                     index={index} 
-                    task={task} 
+                    task={task}
                 />
             ))}
         </ul>

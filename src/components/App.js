@@ -1,17 +1,18 @@
-// starter imports
-import React, { useState, useEffect } from 'react';
+// npm imports
+import React, { useState, useRef } from 'react';
 import { hot } from 'react-hot-loader/root';
 import { arrayMove } from "react-sortable-hoc";
-import tasksContext from './context';
 
-// components
+// components imports
 import Header from './Header';
 import Form from './Form';
 import List from './List';
+import tasksContext from './context';
 
 function App () {
     const [state, setState] = useState(tasksContext);
     const [alteredState, setAlteredState] = useState(state.tasks);
+    const textDragRef = useRef();
 
     function onSortEnd({ oldIndex, newIndex }) {
         setAlteredState(arrayMove(alteredState, oldIndex, newIndex));
@@ -29,6 +30,10 @@ function App () {
                 <List 
                     state={alteredState}
                     onSortEnd={onSortEnd}
+                    lockAxis='y'
+                    helperClass='dragStyle'
+                    transitionDuration='1000'
+                    lockToContainerEdges={true}
                 />
             </ul>
         </div>

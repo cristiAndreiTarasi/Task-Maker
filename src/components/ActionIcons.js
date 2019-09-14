@@ -1,19 +1,13 @@
 import React, { useContext } from 'react';
 
-export default function ({ task, dispatch }) {
+export default function ({ task }) {
     return (
         <ul className="menu">
             {!task.completed && (
                 <>
                     {/* Edit button */}
                     <li className="menu-item">
-                        <i
-                            className="fas fa-edit"
-                            onClick={() => dispatch({
-                                type: 'CAPTURE_CURRENT_TASK',
-                                payload: task
-                            })}
-                        ></i>
+                        <i className="fas fa-edit"></i>
                     </li>
 
                     {/* Pin to top button */}
@@ -30,13 +24,7 @@ export default function ({ task, dispatch }) {
 
             {/* Delete button */}
             <li className="menu-item">
-                <i
-                    className="fas fa-trash"
-                    onClick={() => dispatch({
-                        type: 'DELETE_TASK',
-                        payload: task.id
-                    })}
-                ></i>
+                <i className="fas fa-trash"></i>
             </li>
         </ul>
     );

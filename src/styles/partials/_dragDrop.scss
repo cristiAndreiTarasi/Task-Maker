@@ -1,12 +1,17 @@
 
-.dragStyle {
+.dragStyles { 
     list-style: none;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
-    background-color: #3c424a;
 
-    .main p {
-        font-weight: 300;
-        font-size: 1.3rem;
-        color: darken(#cccdce, 30%);
-    }
+    .dragHelper {
+        transform: scale(1.05);
+        transform: rotate(-2deg);
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        background-color: #3c424a;
+
+         p {
+            font-weight: 300;
+            font-size: 1.3rem;
+            color: darken(#cccdce, 30%);
+        }
+    } 
 }

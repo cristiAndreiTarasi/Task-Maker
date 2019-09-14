@@ -14,7 +14,7 @@ const tasksContext = {
         {
             id: uuid(),
             text: 'Take the Medicines',
-            completed: false,
+            completed: true,
             creationDateTime: {
                 date: undefined,
                 time: undefined

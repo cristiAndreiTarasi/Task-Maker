@@ -31,7 +31,7 @@ function App () {
                     onSortEnd={onSortEnd}
                     lockAxis='y'
                     helperClass='dragStyles'
-                    transitionDuration='1000'
+                    transitionDuration={ 1000 }
                     lockToContainerEdges={true}
                     useDragHandle
                 />

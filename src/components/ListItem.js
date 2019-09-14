@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ActionIcons from './ActionIcons';
 import { SortableElement, sortableHandle } from "react-sortable-hoc";
 
 const DragHandle = sortableHandle(() => <i className="fas fa-grip-lines"></i>);
 
 const ListItem = SortableElement(({ task }) => {
+    const [completedBool, setCompletedBool] = useState(task.completed);
 
     return (
         <li className="App_list_item" key={task.id}>
@@ -19,8 +20,12 @@ const ListItem = SortableElement(({ task }) => {
                         >
                             <DragHandle />
                         </span>
-                        <input type="checkbox" checked={ task.completed } />
-                        <p className={`App_copy ${task.completed && 'lineThrough'}`} >
+                        <input 
+                            type="checkbox" 
+                            checked={ completedBool } 
+                            onChange={() => setCompletedBool(!completedBool)}
+                        />
+                        <p className={`App_copy ${completedBool && 'lineThrough'}`} >
                             {task.text}
                         </p>
                     </div>
@@ -28,7 +33,7 @@ const ListItem = SortableElement(({ task }) => {
                     <ActionIcons task={ task } />
                 </div>
 
-                {!task.completed ? (
+                {!completedBool ? (
                 <div className="status-bar">
                     <p>created on
                         <span> { task.creationDateTime.date } </span>

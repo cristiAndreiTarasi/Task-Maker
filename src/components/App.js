@@ -34,6 +34,7 @@ function App () {
                     helperClass='dragStyle'
                     transitionDuration='1000'
                     lockToContainerEdges={true}
+                    useDragHandle
                 />
             </ul>
         </div>
@@ -41,3 +42,4 @@ function App () {
 };
 
 export default hot(App);
+

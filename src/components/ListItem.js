@@ -1,20 +1,26 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import ActionIcons from './ActionIcons';
-import { SortableElement } from "react-sortable-hoc";
+import { SortableElement, sortableHandle } from "react-sortable-hoc";
+
+const DragHandle = sortableHandle(() => <i className="fas fa-grip-lines"></i>);
 
 const ListItem = SortableElement(({ task }) => {
-    const textDragRef = useRef();
 
     return (
         <li className="App_list_item" key={task.id}>
             <div className="main">
                 <div className="task-group">
-                    <input type="checkbox" checked={ task.completed } />
-                    <p 
-                        className={`App_copy ${task.completed && 'lineThrough'}`} 
-                        ref={textDragRef} 
-                        onClick={() => console.log(textDragRef.current.textContent)}
+
+                    {/* Drag Handle */}
+                    <span 
+                        className="menu-item"
+                        style={{ marginRight: '20px' }}
                     >
+                        <DragHandle />
+                    </span>
+
+                    <input type="checkbox" checked={ task.completed } />
+                    <p className={`App_copy ${task.completed && 'lineThrough'}`} >
                         {task.text}
                     </p>
                 </div>

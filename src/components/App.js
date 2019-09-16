@@ -1,5 +1,5 @@
 // npm imports
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { hot } from 'react-hot-loader/root';
 import { arrayMove } from "react-sortable-hoc";
 
@@ -11,10 +11,14 @@ import tasksContext from './context';
 
 function App () {
     const [state, setState] = useState(tasksContext);
-    const [alteredState, setAlteredState] = useState(state.tasks);
+    const [sortedState, setSortedState] = useState(state.tasks);
+
+    useEffect(() => {
+        setSortedState(state.tasks);
+    }, [state]);
 
     function onSortEnd({ oldIndex, newIndex }) {
-        setAlteredState(arrayMove(alteredState, oldIndex, newIndex));
+        setSortedState(arrayMove(sortedState, oldIndex, newIndex));
     }
 
     return (
@@ -27,7 +31,7 @@ function App () {
 
             <ul className="App_list">
                 <List 
-                    state={alteredState}
+                    sortedState={sortedState}
                     onSortEnd={onSortEnd}
                     lockAxis='y'
                     helperClass='dragStyles'
@@ -41,4 +45,3 @@ function App () {
 };
 
 export default hot(App);
-

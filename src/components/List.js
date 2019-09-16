@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { SortableContainer } from "react-sortable-hoc";
 import ListItem from './ListItem';
 
-const List = SortableContainer(({ state }) => {
+const List = SortableContainer(({ sortedState }) => {
     return (
         <ul className="App_list">
-            {state.map((task, index) => (
+            {sortedState.map((task, index) => (
                 <ListItem
                     key={task.id} 
                     index={index} 
@@ -16,5 +16,4 @@ const List = SortableContainer(({ state }) => {
     )
 });
 
-export default List; 
-
+export default List;

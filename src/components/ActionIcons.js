@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 
-export default function ({ task }) {
+export default function ({ completedBool }) {
     return (
         <ul className="menu">
-            {!task.completed && (
+            {!completedBool && (
                 <>
                     {/* Edit button */}
                     <li className="menu-item">

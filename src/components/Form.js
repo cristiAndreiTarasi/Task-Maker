@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import uuid from 'uuidv4';
 
-export default function ({state}) {
+export default function ({state, setState}) {
     const [value, setValue] = useState('');
 
-    function createNewTask (taskText) {
+    function createNewTask (statePlaceholder, taskText) {
         const date = new Date();
 
         let day = date.getDate().toString().length <= 1 ? '0' + date.getDate() : date.getDate();
@@ -25,14 +25,14 @@ export default function ({state}) {
         };
 
         return {
-            ...state,
-            tasks: [ ...state.tasks, newTask ],
+            ...statePlaceholder,
+            tasks: [ ...statePlaceholder.tasks, newTask ],
         };
     }
 
     function handleSubmit (e) {
         e.preventDefault();
-        createNewTask(value);
+        setState(createNewTask(state, value));
         setValue('');
     }
 

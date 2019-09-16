@@ -20,6 +20,7 @@ const ListItem = SortableElement(({ task }) => {
                         >
                             <DragHandle />
                         </span>
+
                         <input 
                             type="checkbox" 
                             checked={ completedBool } 
@@ -30,7 +31,7 @@ const ListItem = SortableElement(({ task }) => {
                         </p>
                     </div>
 
-                    <ActionIcons task={ task } />
+                    <ActionIcons completedBool={ completedBool } />
                 </div>
 
                 {!completedBool ? (

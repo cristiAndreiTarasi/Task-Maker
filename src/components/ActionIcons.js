@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import { deleteTask } from './addEditDelete';
+import { deleteTask, getCurrentTask } from './addEditDelete';
 
-export default function ({ completedBool, task, sortedState, setSortedState }) {
+export default function ({ completedBool, task, sortedState, setSortedState, state, setState }) {
 
     return (
         <ul className="menu">
@@ -9,7 +9,10 @@ export default function ({ completedBool, task, sortedState, setSortedState }) {
                 <>
                     {/* Edit button */}
                     <li className="menu-item">
-                        <i className="fas fa-edit"></i>
+                        <i 
+                            className="fas fa-edit"
+                            onClick={() => setState(getCurrentTask(state, task.text))}
+                        ></i>
                     </li>
 
                     {/* Pin to top button */}

@@ -32,5 +32,12 @@ function deleteTask (statePlaceholder, id) {
     ];
 }
 
-export { createNewTask, deleteTask };
+function getCurrentTask (statePlaceholder, currentTaskText) {
+    return {
+        ...statePlaceholder,
+        currentTask: currentTaskText,
+    }
+}
+
+export { createNewTask, deleteTask, getCurrentTask };
 

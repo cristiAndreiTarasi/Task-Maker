@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { SortableContainer } from "react-sortable-hoc";
 import ListItem from './ListItem';
 
-const List = SortableContainer(({ sortedState, setSortedState }) => {
+const List = SortableContainer(({ sortedState, setSortedState, state, setState }) => {
     return (
         <ul className="App_list">
             {sortedState.map((task, index) => (
@@ -12,6 +12,8 @@ const List = SortableContainer(({ sortedState, setSortedState }) => {
                     task={task}
                     sortedState={sortedState}
                     setSortedState={setSortedState}
+                    state={state}
+                    setState={setState}
                 />
             ))}
         </ul>

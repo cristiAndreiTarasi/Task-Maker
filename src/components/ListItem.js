@@ -4,7 +4,7 @@ import { SortableElement, sortableHandle } from "react-sortable-hoc";
 
 const DragHandle = sortableHandle(() => <i className="fas fa-grip-lines"></i>);
 
-const ListItem = SortableElement(({ task, sortedState, setSortedState }) => {
+const ListItem = SortableElement(({ task, sortedState, setSortedState, state, setState }) => {
     const [completedBool, setCompletedBool] = useState(task.completed);
 
 
@@ -37,6 +37,8 @@ const ListItem = SortableElement(({ task, sortedState, setSortedState }) => {
                         task={task}
                         sortedState={sortedState}
                         setSortedState={setSortedState}
+                        state={state}
+                        setState={setState}
                     />
                 </div>
 

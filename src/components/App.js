@@ -26,6 +26,7 @@ function App () {
             <Header />
             <Form
                 sortedState={sortedState}
+                currentTask={state.currentTask}
                 setSortedState={setSortedState}
             />
 
@@ -33,6 +34,9 @@ function App () {
                 <List 
                     sortedState={sortedState}
                     setSortedState={setSortedState}
+                    state={state}
+                    setState={setState}
+                    
                     onSortEnd={onSortEnd}
                     lockAxis='y'
                     helperClass='dragStyles'

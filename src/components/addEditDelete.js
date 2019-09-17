@@ -1,7 +1,8 @@
 
 import uuid from 'uuidv4';
 
-function createNewTask (statePlaceholder, taskText) {
+// Function to create new tasks 
+function createTask (statePlaceholder, taskText) {
     const date = new Date();
 
     let day = date.getDate().toString().length <= 1 ? '0' + date.getDate() : date.getDate();
@@ -21,23 +22,47 @@ function createNewTask (statePlaceholder, taskText) {
         }
     };
 
-    return [ ...statePlaceholder, newTask ];
-}
-
-function deleteTask (statePlaceholder, id) {
-    const filteredTasks = statePlaceholder.filter(task => task.id !== id);
-
-    return [
-        ...filteredTasks,
-    ];
-}
-
-function getCurrentTask (statePlaceholder, currentTaskText) {
     return {
         ...statePlaceholder,
-        currentTask: currentTaskText,
+        tasks: [ ...statePlaceholder.tasks, newTask ],
+    };
+}
+
+// Function to get the current task's text value and place it into the input value
+function getCurrentTask (statePlaceholder, currentTask) {
+    return {
+        ...statePlaceholder,
+        currentTask: currentTask,
     }
 }
 
-export { createNewTask, deleteTask, getCurrentTask };
+// Function to update tasks
+function updateTask (statePlaceholder, id) {
+    const updatedTaskIndex = statePlaceholder.tasks.findIndex(task => task.id === id);
+    const updatedTask = { ...statePlaceholder.currentTask, text: statePlaceholder.currentTask.text }
+    const updatedTasks = [
+        ...statePlaceholder.tasks.slice(0, updatedTaskIndex),
+        updatedTask,
+        ...statePlaceholder.tasks.slice(updatedTaskIndex + 1)
+    ];
+
+    return {
+        ...statePlaceholder,
+        tasks: updatedTasks,
+        currentTask: null,
+    }
+}
+
+// Function to delete tasks
+function deleteTask (statePlaceholder, id) {
+    const filteredTasks = statePlaceholder.tasks.filter(task => task.id !== id);
+
+    return {
+        ...statePlaceholder,
+        tasks: filteredTasks,
+    };
+}
+
+
+export { createTask, deleteTask, getCurrentTask, updateTask };
 

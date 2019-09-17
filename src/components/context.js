@@ -31,7 +31,7 @@ const tasksContext = {
         },
     ],
 
-    currentTask: null,
+    currentTask: {},
 };
 
 export default tasksContext;

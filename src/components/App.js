@@ -25,8 +25,9 @@ function App () {
         <div className="App">
             <Header />
             <Form
+                state={state}
+                setState={setState}
                 sortedState={sortedState}
-                currentTask={state.currentTask}
                 setSortedState={setSortedState}
             />
 
@@ -36,7 +37,7 @@ function App () {
                     setSortedState={setSortedState}
                     state={state}
                     setState={setState}
-                    
+
                     onSortEnd={onSortEnd}
                     lockAxis='y'
                     helperClass='dragStyles'

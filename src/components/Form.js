@@ -1,23 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { createNewTask } from './addEditDelete';
+import { createTask, updateTask } from './addEditDelete';
 
-export default function ({sortedState, setSortedState, currentTask }) {
+export default function ({ state, setState }) {
     const [value, setValue] = useState('');
-
-    useEffect(() => {
-        currentTask
-            ? setValue(currentTask)
-            : setValue('')
-    }, [currentTask]);
-
-    
 
     function handleSubmit (e) {
         e.preventDefault();
-        setSortedState(createNewTask(sortedState, value));
+
+        state.currentTask
+            ? setState(updateTask(state, state.currentTask.id))
+            : setState(createTask(state, value));
+        
         setValue('');
-        console.log(currentTask)
     }
+
+    useEffect(() => {
+        state.currentTask
+            ? setValue(state.currentTask)
+            : setValue('')
+    }, [state.currentTask]);
 
     return (
         <form

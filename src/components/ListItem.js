@@ -4,7 +4,7 @@ import { SortableElement, sortableHandle } from "react-sortable-hoc";
 
 const DragHandle = sortableHandle(() => <i className="fas fa-grip-lines"></i>);
 
-const ListItem = SortableElement(({ task, sortedState, setSortedState, state, setState }) => {
+const ListItem = SortableElement(({ task, state, setState }) => {
     const [completedBool, setCompletedBool] = useState(task.completed);
 
 
@@ -35,8 +35,6 @@ const ListItem = SortableElement(({ task, sortedState, setSortedState, state, se
                     <ActionIcons 
                         completedBool={completedBool} 
                         task={task}
-                        sortedState={sortedState}
-                        setSortedState={setSortedState}
                         state={state}
                         setState={setState}
                     />
@@ -44,11 +42,11 @@ const ListItem = SortableElement(({ task, sortedState, setSortedState, state, se
 
                 {!completedBool ? (
                 <div className="status-bar">
-                    <p>created on
-                        <span> { task.creationDateTime.date } </span>
-                        at
-                        <span> { task.creationDateTime.time }</span>
-                    </p>
+                    {/*<p>created on
+                                            <span> { task.creationDateTime.date } </span>
+                                            at
+                                            <span> { task.creationDateTime.time }</span>
+                                        </p>*/}
                 </div>
                 ) : null}
             </div>

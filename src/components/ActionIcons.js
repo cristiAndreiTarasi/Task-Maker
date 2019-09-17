@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { deleteTask, getCurrentTask } from './addEditDelete';
 
-export default function ({ completedBool, task, sortedState, setSortedState, state, setState }) {
+export default function ({ completedBool, task, state, setState }) {
 
     return (
         <ul className="menu">
@@ -31,7 +31,7 @@ export default function ({ completedBool, task, sortedState, setSortedState, sta
             <li className="menu-item">
                 <i 
                     className="fas fa-trash"
-                    onClick={() => setSortedState(deleteTask(sortedState, task.id))}
+                    onClick={() => setState(deleteTask(state, task.id))}
                 ></i>
             </li>
         </ul>

@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
+import { deleteTask } from './addEditDelete';
 
-export default function ({ completedBool }) {
+export default function ({ completedBool, task, sortedState, setSortedState }) {
+
     return (
         <ul className="menu">
             {!completedBool && (
@@ -24,7 +26,10 @@ export default function ({ completedBool }) {
 
             {/* Delete button */}
             <li className="menu-item">
-                <i className="fas fa-trash"></i>
+                <i 
+                    className="fas fa-trash"
+                    onClick={() => setSortedState(deleteTask(sortedState, task.id))}
+                ></i>
             </li>
         </ul>
     );

@@ -25,13 +25,14 @@ function App () {
         <div className="App">
             <Header />
             <Form
-                state={state}
-                setState={setState}
+                sortedState={sortedState}
+                setSortedState={setSortedState}
             />
 
             <ul className="App_list">
                 <List 
                     sortedState={sortedState}
+                    setSortedState={setSortedState}
                     onSortEnd={onSortEnd}
                     lockAxis='y'
                     helperClass='dragStyles'

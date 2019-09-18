@@ -38,7 +38,8 @@ $vendors: 'webkit' 'moz' 'ms' 'o';
 
                 input[type="checkbox"] {
                     margin: 0px 10px 0px 0px;
-                    -webkit-appearance: none;background-color: #fafafa;
+                    -webkit-appearance: none;
+                    background-color: #fafafa;
 	                  border: 1px solid indianred;
                     background-color: transparentize(indianred, 0.9);
 	                  padding: 9px;

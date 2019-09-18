@@ -1,6 +1,7 @@
 import uuid from 'uuidv4';
 
 // Function that returns the timestamp of the creation of the task
+// ***************************************************************
 function getCurrentDateTime () {
     const date = new Date();
 
@@ -15,6 +16,7 @@ function getCurrentDateTime () {
 }
 
 // Function to toggle checkbox's state
+// ***************************************************************
 function toggleTasks (statePlaceholder, task) {
     const toggledTasks = statePlaceholder.tasks.map(t => 
         t.id === task.id ? { ...task, completed: !task.completed } : t
@@ -27,7 +29,8 @@ function toggleTasks (statePlaceholder, task) {
 }
 
 
-// Function to create new tasks 
+// Function to create new tasks
+// ***************************************************************
 function createTask (statePlaceholder, currentTaskText) {
     let newTask = {
         id: uuid(),
@@ -46,6 +49,7 @@ function createTask (statePlaceholder, currentTaskText) {
 }
 
 // Function to get the current task's text value and place it into the input value
+// ***************************************************************
 function getCurrentTask (statePlaceholder, currentTask) {
     return {
         ...statePlaceholder,
@@ -54,6 +58,7 @@ function getCurrentTask (statePlaceholder, currentTask) {
 }
 
 // Function to update tasks
+// ***************************************************************
 function updateTask (statePlaceholder, id, value) {
     const updatedTaskIndex = statePlaceholder.tasks.findIndex(task => task.id === id);
     const selectedTask = statePlaceholder.tasks.find(task => task.id === id);
@@ -80,6 +85,7 @@ function updateTask (statePlaceholder, id, value) {
 }
 
 // Function to delete tasks
+// ***************************************************************
 function deleteTask (statePlaceholder, id) {
     const filteredTasks = statePlaceholder.tasks.filter(task => task.id !== id);
 

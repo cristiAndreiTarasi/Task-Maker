@@ -5,7 +5,7 @@ import { SortableElement, sortableHandle } from "react-sortable-hoc";
 
 const DragHandle = sortableHandle(() => <i className="fas fa-grip-lines"></i>);
 
-const ListItem = SortableElement(({ task, state, setState }) => {
+const ListItem = SortableElement(({ task, tasks, setTasks, currentTask, setCurrentTask }) => {
     return (
         <li className="App_list_item" key={task.id}>
             <div className='dragHelper'>
@@ -23,7 +23,7 @@ const ListItem = SortableElement(({ task, state, setState }) => {
                         <input 
                             type="checkbox" 
                             checked={task.completed} 
-                            onChange={() => setState(toggleTasks(state, task))}
+                            onChange={() => setTasks(toggleTasks(tasks, task))}
                         />
                         <p className={`App_copy ${task.completed && 'lineThrough'}`} >
                             {task.text}
@@ -32,8 +32,10 @@ const ListItem = SortableElement(({ task, state, setState }) => {
 
                     <ActionIcons 
                         task={task}
-                        state={state}
-                        setState={setState}
+                        tasks={tasks}
+                        setTasks={setTasks}
+                        currentTask={currentTask}
+                        setCurrentTask={setCurrentTask}
                     />
                 </div>
 

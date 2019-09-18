@@ -3,17 +3,18 @@ import { SortableContainer } from "react-sortable-hoc";
 import uuid from 'uuidv4';
 import ListItem from './ListItem';
 
-const List = SortableContainer(({ sortedState, state, setState }) => {
+const List = SortableContainer(({ tasks, setTasks, currentTask, setCurrentTask }) => {
     return (
         <ul className="App_list">
-            {sortedState.map((task, index) => (
+            {tasks.map((task, index) => (
                 <ListItem
                     key={uuid()} 
                     index={index} 
                     task={task}
-                    sortedState={sortedState}
-                    state={state}
-                    setState={setState}
+                    tasks={tasks}
+                    setTasks={setTasks}
+                    currentTask={currentTask}
+                    setCurrentTask={setCurrentTask}
                 />
             ))}
         </ul>

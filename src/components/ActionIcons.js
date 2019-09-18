@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { deleteTask, getCurrentTask } from './addEditDelete';
 
-export default function ({ task, state, setState }) {
+export default function ({ task, tasks, setTasks, currentTask, setCurrentTask }) {
 
     return (
         <ul className="menu">
@@ -11,7 +11,7 @@ export default function ({ task, state, setState }) {
                     <li className="menu-item">
                         <i 
                             className="fas fa-edit"
-                            onClick={() => setState(getCurrentTask(state, task))}
+                            onClick={() => setCurrentTask(getCurrentTask(currentTask, task))}
                         ></i>
                     </li>
 
@@ -31,7 +31,7 @@ export default function ({ task, state, setState }) {
             <li className="menu-item">
                 <i 
                     className="fas fa-trash"
-                    onClick={() => setState(deleteTask(state, task.id))}
+                    onClick={() => setTasks(deleteTask(tasks, task.id))}
                 ></i>
             </li>
         </ul>

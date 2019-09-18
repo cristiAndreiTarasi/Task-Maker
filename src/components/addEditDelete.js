@@ -18,14 +18,11 @@ function getCurrentDateTime () {
 // Function to toggle checkbox's state
 // ***************************************************************
 function toggleTasks (statePlaceholder, task) {
-    const toggledTasks = statePlaceholder.tasks.map(t => 
+    const toggledTasks = statePlaceholder.map(t => 
         t.id === task.id ? { ...task, completed: !task.completed } : t
     );
 
-    return {
-        ...statePlaceholder,
-        tasks: toggledTasks,
-    };
+    return [ ...toggledTasks, ];
 }
 
 
@@ -42,26 +39,24 @@ function createTask (statePlaceholder, currentTaskText) {
         }
     };
 
-    return {
-        ...statePlaceholder,
-        tasks: [ ...statePlaceholder.tasks, newTask ],
-    };
+    return [ ...statePlaceholder, newTask ];
 }
 
 // Function to get the current task's text value and place it into the input value
 // ***************************************************************
 function getCurrentTask (statePlaceholder, currentTask) {
-    return {
-        ...statePlaceholder,
-        currentTask: { ...currentTask, text: currentTask.text, completed: false },
-    }
+    return { 
+        ...statePlaceholder, 
+        text: currentTask.text, 
+        completed: false 
+    };
 }
 
 // Function to update tasks
 // ***************************************************************
 function updateTask (statePlaceholder, id, value) {
-    const updatedTaskIndex = statePlaceholder.tasks.findIndex(task => task.id === id);
-    const selectedTask = statePlaceholder.tasks.find(task => task.id === id);
+    const updatedTaskIndex = statePlaceholder.findIndex(task => task.id === id);
+    const selectedTask = statePlaceholder.find(task => task.id === id);
     const updatedTask = { 
         ...selectedTask, 
         text: value,
@@ -72,16 +67,12 @@ function updateTask (statePlaceholder, id, value) {
     };
     
     const updatedTasks = [
-        ...statePlaceholder.tasks.slice(0, updatedTaskIndex),
+        ...statePlaceholder.slice(0, updatedTaskIndex),
         updatedTask,
-        ...statePlaceholder.tasks.slice(updatedTaskIndex + 1)
+        ...statePlaceholder.slice(updatedTaskIndex + 1)
     ];
 
-    return {
-        ...statePlaceholder,
-        tasks: updatedTasks,
-        currentTask: {},
-    }
+    return updatedTasks;
 }
 
 // Function to delete tasks

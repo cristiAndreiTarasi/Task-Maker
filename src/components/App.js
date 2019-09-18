@@ -7,37 +7,30 @@ import { arrayMove } from "react-sortable-hoc";
 import Header from './Header';
 import Form from './Form';
 import List from './List';
-import tasksContext from './context';
 
 function App () {
-    const [state, setState] = useState(tasksContext);
-    const [sortedState, setSortedState] = useState(state.tasks);
-
-    useEffect(() => {
-        setSortedState(state.tasks);
-    }, [state]);
+    const [tasks, setTasks] = useState([]);
+    const [currentTask, setCurrentTask] = useState({});
 
     function onSortEnd({ oldIndex, newIndex }) {
-        setSortedState(arrayMove(sortedState, oldIndex, newIndex));
+        setTasks(arrayMove(tasks, oldIndex, newIndex));
     }
 
     return (
         <div className="App">
             <Header />
             <Form
-                state={state}
-                setState={setState}
-                sortedState={sortedState}
-                setSortedState={setSortedState}
-                currentTask={state.currentTask}
+                tasks={tasks}
+                setTasks={setTasks}
+                currentTask={currentTask}
             />
 
             <ul className="App_list">
                 <List 
-                    sortedState={sortedState}
-                    setSortedState={setSortedState}
-                    state={state}
-                    setState={setState}
+                    tasks={tasks}
+                    setTasks={setTasks}
+                    currentTask={currentTask}
+                    setCurrentTask={setCurrentTask}
 
                     onSortEnd={onSortEnd}
                     lockAxis='y'

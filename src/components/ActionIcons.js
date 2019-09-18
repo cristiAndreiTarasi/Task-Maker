@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import { deleteTask, getCurrentTask } from './addEditDelete';
 
-export default function ({ completedBool, task, state, setState }) {
+export default function ({ task, state, setState }) {
 
     return (
         <ul className="menu">
-            {!completedBool && (
+            {!task.completed && (
                 <>
                     {/* Edit button */}
                     <li className="menu-item">

@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ActionIcons from './ActionIcons';
+import { toggleTasks } from './addEditDelete';
 import { SortableElement, sortableHandle } from "react-sortable-hoc";
 
 const DragHandle = sortableHandle(() => <i className="fas fa-grip-lines"></i>);
 
 const ListItem = SortableElement(({ task, state, setState }) => {
-    const [completedBool, setCompletedBool] = useState(task.completed);
-
-
     return (
         <li className="App_list_item" key={task.id}>
             <div className='dragHelper'>
@@ -24,23 +22,22 @@ const ListItem = SortableElement(({ task, state, setState }) => {
 
                         <input 
                             type="checkbox" 
-                            checked={ completedBool } 
-                            onChange={() => setCompletedBool(!completedBool)}
+                            checked={task.completed} 
+                            onChange={() => setState(toggleTasks(state, task))}
                         />
-                        <p className={`App_copy ${completedBool && 'lineThrough'}`} >
+                        <p className={`App_copy ${task.completed && 'lineThrough'}`} >
                             {task.text}
                         </p>
                     </div>
 
                     <ActionIcons 
-                        completedBool={completedBool} 
                         task={task}
                         state={state}
                         setState={setState}
                     />
                 </div>
 
-                {!completedBool ? (
+                {!task.completed ? (
                 <div className="status-bar">
                     <p>created on
                         <span> { task.creationDateTime.date } </span>

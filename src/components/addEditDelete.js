@@ -1,8 +1,7 @@
-
 import uuid from 'uuidv4';
 
-// Function to create new tasks 
-function createTask (statePlaceholder, currentTaskText) {
+// Function that returns the timestamp of the creation of the task
+function getCurrentDateTime () {
     const date = new Date();
 
     let day = date.getDate().toString().length <= 1 ? '0' + date.getDate() : date.getDate();
@@ -12,13 +11,31 @@ function createTask (statePlaceholder, currentTaskText) {
     let minutes = date.getMinutes().toString().length <= 1 ? '0' + date.getMinutes() : date.getMinutes();
     let seconds = date.getSeconds().toString().length <= 1 ? '0' + date.getSeconds() : date.getSeconds();
 
+    return { day, month, year, hours, minutes, seconds };
+}
+
+// Function to toggle checkbox's state
+function toggleTasks (statePlaceholder, task) {
+    const toggledTasks = statePlaceholder.tasks.map(t => 
+        t.id === task.id ? { ...task, completed: !task.completed } : t
+    );
+
+    return {
+        ...statePlaceholder,
+        tasks: toggledTasks,
+    };
+}
+
+
+// Function to create new tasks 
+function createTask (statePlaceholder, currentTaskText) {
     let newTask = {
         id: uuid(),
         text: currentTaskText,
         completed: false,
         creationDateTime: {
-            date: `${day}/${month}/${year}`,
-            time: `${hours}:${minutes}:${seconds}`
+            date: `${getCurrentDateTime().day}/${getCurrentDateTime().month}/${getCurrentDateTime().year}`,
+            time: `${getCurrentDateTime().hours}:${getCurrentDateTime().minutes}:${getCurrentDateTime().seconds}`
         }
     };
 
@@ -40,7 +57,14 @@ function getCurrentTask (statePlaceholder, currentTask) {
 function updateTask (statePlaceholder, id, value) {
     const updatedTaskIndex = statePlaceholder.tasks.findIndex(task => task.id === id);
     const selectedTask = statePlaceholder.tasks.find(task => task.id === id);
-    const updatedTask = { ...selectedTask, text: value };
+    const updatedTask = { 
+        ...selectedTask, 
+        text: value,
+        creationDateTime: {
+            date: `${getCurrentDateTime().day}/${getCurrentDateTime().month}/${getCurrentDateTime().year}`,
+            time: `${getCurrentDateTime().hours}:${getCurrentDateTime().minutes}:${getCurrentDateTime().seconds}`
+        } 
+    };
     
     const updatedTasks = [
         ...statePlaceholder.tasks.slice(0, updatedTaskIndex),
@@ -66,5 +90,5 @@ function deleteTask (statePlaceholder, id) {
 }
 
 
-export { createTask, deleteTask, getCurrentTask, updateTask };
+export { createTask, deleteTask, getCurrentTask, updateTask, toggleTasks };
 

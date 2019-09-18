@@ -13,7 +13,7 @@ const tasksContext = {
         {
             id: 1,
             text: 'Take the Medicines',
-            completed: true,
+            completed: false,
             creationDateTime: {
                 date: undefined,
                 time: undefined

@@ -42,11 +42,11 @@ const ListItem = SortableElement(({ task, state, setState }) => {
 
                 {!completedBool ? (
                 <div className="status-bar">
-                    {/*<p>created on
-                                            <span> { task.creationDateTime.date } </span>
-                                            at
-                                            <span> { task.creationDateTime.time }</span>
-                                        </p>*/}
+                    <p>created on
+                        <span> { task.creationDateTime.date } </span>
+                        at
+                        <span> { task.creationDateTime.time }</span>
+                    </p>
                 </div>
                 ) : null}
             </div>

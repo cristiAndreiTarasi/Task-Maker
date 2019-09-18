@@ -2,7 +2,7 @@
 import uuid from 'uuidv4';
 
 // Function to create new tasks 
-function createTask (statePlaceholder, taskText) {
+function createTask (statePlaceholder, currentTaskText) {
     const date = new Date();
 
     let day = date.getDate().toString().length <= 1 ? '0' + date.getDate() : date.getDate();
@@ -14,7 +14,7 @@ function createTask (statePlaceholder, taskText) {
 
     let newTask = {
         id: uuid(),
-        text: taskText,
+        text: currentTaskText,
         completed: false,
         creationDateTime: {
             date: `${day}/${month}/${year}`,
@@ -32,14 +32,16 @@ function createTask (statePlaceholder, taskText) {
 function getCurrentTask (statePlaceholder, currentTask) {
     return {
         ...statePlaceholder,
-        currentTask: currentTask,
+        currentTask: { ...currentTask, text: currentTask.text, completed: false },
     }
 }
 
 // Function to update tasks
-function updateTask (statePlaceholder, id) {
+function updateTask (statePlaceholder, id, value) {
     const updatedTaskIndex = statePlaceholder.tasks.findIndex(task => task.id === id);
-    const updatedTask = { ...statePlaceholder.currentTask, text: statePlaceholder.currentTask.text }
+    const selectedTask = statePlaceholder.tasks.find(task => task.id === id);
+    const updatedTask = { ...selectedTask, text: value };
+    
     const updatedTasks = [
         ...statePlaceholder.tasks.slice(0, updatedTaskIndex),
         updatedTask,
@@ -49,7 +51,7 @@ function updateTask (statePlaceholder, id) {
     return {
         ...statePlaceholder,
         tasks: updatedTasks,
-        currentTask: null,
+        currentTask: {},
     }
 }
 

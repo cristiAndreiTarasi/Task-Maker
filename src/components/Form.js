@@ -1,24 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { createTask, updateTask } from './addEditDelete';
 
-export default function ({ state, setState }) {
+export default function ({ state, setState, currentTask }) {
     const [value, setValue] = useState('');
+    useEffect(() => currentTask ? setValue(currentTask.text) : setValue(''), [state]);
 
     function handleSubmit (e) {
         e.preventDefault();
-
-        state.currentTask
-            ? setState(updateTask(state, state.currentTask.id))
-            : setState(createTask(state, value));
-        
+        currentTask.text ? setState(updateTask(state, currentTask.id, value)) : setState(createTask(state, value));
         setValue('');
     }
-
-    useEffect(() => {
-        state.currentTask
-            ? setValue(state.currentTask)
-            : setValue('')
-    }, [state.currentTask]);
 
     return (
         <form

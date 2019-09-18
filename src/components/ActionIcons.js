@@ -11,7 +11,7 @@ export default function ({ completedBool, task, state, setState }) {
                     <li className="menu-item">
                         <i 
                             className="fas fa-edit"
-                            onClick={() => setState(getCurrentTask(state, task.text))}
+                            onClick={() => setState(getCurrentTask(state, task))}
                         ></i>
                     </li>
 

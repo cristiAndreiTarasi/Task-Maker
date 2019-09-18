@@ -29,6 +29,7 @@ function App () {
                 setState={setState}
                 sortedState={sortedState}
                 setSortedState={setSortedState}
+                currentTask={state.currentTask}
             />
 
             <ul className="App_list">

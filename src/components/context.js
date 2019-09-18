@@ -1,9 +1,8 @@
-import uuid from 'uuidv4';
 
 const tasksContext = {
     tasks: [
         {
-            id: uuid(),
+            id: 0,
             text: 'Buy Milk',
             completed: false,
             creationDateTime: {
@@ -12,7 +11,7 @@ const tasksContext = {
             }
         },
         {
-            id: uuid(),
+            id: 1,
             text: 'Take the Medicines',
             completed: true,
             creationDateTime: {
@@ -21,7 +20,7 @@ const tasksContext = {
             }
         },
         {
-            id: uuid(),
+            id: 2,
             text: 'Walk the Dog',
             completed: false,
             creationDateTime: {

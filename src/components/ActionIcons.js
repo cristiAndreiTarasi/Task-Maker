@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { deleteTask, getCurrentTask } from './C_R_U_D_Functions';
+import { deleteTask, getCurrentTask, addNotes } from './functionsBase';
 
 export default function ({ task, tasks, setTasks, currentTask, setCurrentTask }) {
 
@@ -21,7 +21,7 @@ export default function ({ task, tasks, setTasks, currentTask, setCurrentTask })
 
                     {/* Make note button */}
                     <li className="menu-item">
-                        <i className="fas fa-sticky-note"></i>
+                        <i className="fas fa-sticky-note" onClick={addNotes}></i>
                     </li>
                 </>
             )}

@@ -23,9 +23,9 @@ $vendors: 'webkit' 'moz' 'ms' 'o';
             @include flexVendors;
 
             justify-content: space-between;
-            padding: 0 20px;
+            padding: 10px 20px;
             align-items: center;
-            height: 40px;
+            height: auto;
             border-radius: 2px;
             transition: all 0.5s ease-in-out;
             color: #727983;
@@ -54,6 +54,11 @@ $vendors: 'webkit' 'moz' 'ms' 'o';
                     background-color: transparentize(lightgreen, 0.9);
 	                  padding: 9px;
 	                  border-radius: 50%;
+                }
+
+                p.App_copy {
+                    word-wrap: break-word;
+                    padding: 0 10px;
                 }
 
                 .lineThrough {

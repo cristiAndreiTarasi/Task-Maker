@@ -1,9 +1,9 @@
 import React from 'react';
 import ActionIcons from './ActionIcons';
-import { toggleTasks } from './C_R_U_D_Functions';
+import { toggleTasks } from './functionsBase';
 import { SortableElement, sortableHandle } from "react-sortable-hoc";
 
-const DragHandle = sortableHandle(() => <i className="fas fa-grip-lines"></i>);
+const DragHandle = sortableHandle(() => <i className="fas fa-grip-lines" style={{ cursor: 'row-resize', }}></i>);
 
 const ListItem = SortableElement(({ task, tasks, setTasks, currentTask, setCurrentTask }) => {
     return (
@@ -34,10 +34,12 @@ const ListItem = SortableElement(({ task, tasks, setTasks, currentTask, setCurre
 
                 {!task.completed ? (
                 <div className="status-bar">
-                    <p>created on
+                    <div className="timestamp">
+                        <p>created on
                         <span> { task.creationDateTime.date } </span> at
-                        <span> { task.creationDateTime.time }</span>
-                    </p>
+                            <span> { task.creationDateTime.time }</span>
+                        </p>
+                    </div>
                 </div>
                 ) : null}
             </div>

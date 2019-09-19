@@ -59,9 +59,6 @@ function updateTask (statePlaceholder, id, value) {
     const currentSetTaskIndex = statePlaceholder.findIndex(task => task.id === id);
     const currentSetTask = statePlaceholder.find(task => task.id === id);
 
-    console.log(currentSetTaskIndex)
-    console.log(currentSetTask)
-
     const updatedTask = { 
         ...currentSetTask, 
         text: value,
@@ -88,6 +85,11 @@ function deleteTask (statePlaceholder, id) {
     return [ ...filteredTasks, ];
 }
 
+// Function to add notes
+// ***************************************************************
+function addNotes () {
+    console.log('from add note function');
+}
 
-export { createTask, deleteTask, getCurrentTask, updateTask, toggleTasks };
+export { createTask, deleteTask, getCurrentTask, updateTask, toggleTasks, addNotes };
 

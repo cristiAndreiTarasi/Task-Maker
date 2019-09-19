@@ -1,7 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useState, useCallback } from 'react';
 import { deleteTask, getCurrentTask, addNotes } from './functionsBase';
+import Modal from "@netojose/react-modal";
 
 export default function ({ task, tasks, setTasks, currentTask, setCurrentTask }) {
+    const [isOpen, setIsOpen] = useState(false);
+    const openModal = useCallback(() => setIsOpen(true), []);
+    const closeModal = useCallback(() => setIsOpen(false), []);
 
     return (
         <ul className="menu">
@@ -21,7 +25,11 @@ export default function ({ task, tasks, setTasks, currentTask, setCurrentTask })
 
                     {/* Make note button */}
                     <li className="menu-item">
-                        <i className="fas fa-sticky-note" onClick={addNotes}></i>
+                        <i className="fas fa-sticky-note" onClick={openModal}></i>
+                        <Modal isOpen={isOpen} onRequestClose={closeModal}>
+                            <p>This is the modal content</p>
+                            <input type="button" value="Close modal" onClick={closeModal} />
+                        </Modal>
                     </li>
                 </>
             )}

@@ -21,7 +21,7 @@ export default function ({ isOpen, closeModal }) {
 
     return (
         <Modal  
-            isOpen={isOpen} 
+            isOpen={!isOpen} 
             onRequestClose={closeModal}
             modalStyles={modalStyles}
             overlayStyles={{backgroundColor: 'rgba(0,0,0,0.2)',}}>

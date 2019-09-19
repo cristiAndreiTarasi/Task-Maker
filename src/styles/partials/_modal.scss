@@ -1,13 +1,12 @@
 
 .Modal_content {
-    background-color: #c0cee2;
-
     .Modal_header {
         background-color: #8f9db0;
         height: 40px;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        border-bottom: 1px solid #7a8696;
 
         .Modal_title {
             margin-left: 40px;
@@ -21,10 +20,19 @@
             color: #cd5c5c; 
             padding: 0 10px; 
             cursor: pointer;
+            transition: color 0.3s ease-in-out;
+
+            &:hover {
+                color: #9a4545;
+            }
         }
     }
 
     .Modal_content {
-        padding: 10px 20px;
+        padding: 20px;
+        color: #3c424a;
+        // font-size:
+        word-wrap: wrap-all;
+        border-top: 1px solid #d7e6fc;
     }
 }

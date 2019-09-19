@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Modal from "@netojose/react-modal";
 
 const modalStyles = {
@@ -17,13 +17,15 @@ const modalStyles = {
 };
 
 export default function ({ isOpen, closeModal }) {
+    const [noteText, setNoteText] = useState('Type your notes here.');
+
     return (
         <Modal  
             isOpen={isOpen} 
             onRequestClose={closeModal}
             modalStyles={modalStyles}
-            overlayStyles={{backgroundColor: 'rgba(0,0,0,0.2)',}}
-        >
+            overlayStyles={{backgroundColor: 'rgba(0,0,0,0.2)',}}>
+            
             <div className="Modal_content">
                 <div className="Modal_header">
                     <h1 className="Modal_title">Add note</h1>
@@ -31,7 +33,7 @@ export default function ({ isOpen, closeModal }) {
                         <i className="fas fa-times" onClick={closeModal}></i>
                     </span>
                 </div>
-                <p className="Modal_content">Type your notes here. <br />Start the edit mode by clicking on the text</p>
+                <p className="Modal_content">{noteText}<br /> Add edit and save buttons</p>
             </div>
         </Modal>
     );

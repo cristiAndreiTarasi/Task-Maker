@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { deleteTask, getCurrentTask } from './addEditDelete';
+import { deleteTask, getCurrentTask } from './C_R_U_D_Functions';
 
 export default function ({ task, tasks, setTasks, currentTask, setCurrentTask }) {
 
@@ -11,8 +11,7 @@ export default function ({ task, tasks, setTasks, currentTask, setCurrentTask })
                     <li className="menu-item">
                         <i 
                             className="fas fa-edit"
-                            onClick={() => setCurrentTask(getCurrentTask(currentTask, task))}
-                        ></i>
+                            onClick={() => setCurrentTask(getCurrentTask(currentTask, task))} ></i>
                     </li>
 
                     {/* Pin to top button */}
@@ -29,10 +28,7 @@ export default function ({ task, tasks, setTasks, currentTask, setCurrentTask })
 
             {/* Delete button */}
             <li className="menu-item">
-                <i 
-                    className="fas fa-trash"
-                    onClick={() => setTasks(deleteTask(tasks, task.id))}
-                ></i>
+                <i className="fas fa-trash" onClick={() => setTasks(deleteTask(tasks, task.id))}></i>
             </li>
         </ul>
     );

@@ -46,7 +46,8 @@ function createTask (statePlaceholder, currentTaskText) {
 // ***************************************************************
 function getCurrentTask (statePlaceholder, currentTask) {
     return { 
-        ...statePlaceholder, 
+        ...statePlaceholder,
+        id: currentTask.id,
         text: currentTask.text, 
         completed: false 
     };
@@ -55,10 +56,14 @@ function getCurrentTask (statePlaceholder, currentTask) {
 // Function to update tasks
 // ***************************************************************
 function updateTask (statePlaceholder, id, value) {
-    const updatedTaskIndex = statePlaceholder.findIndex(task => task.id === id);
-    const selectedTask = statePlaceholder.find(task => task.id === id);
+    const currentSetTaskIndex = statePlaceholder.findIndex(task => task.id === id);
+    const currentSetTask = statePlaceholder.find(task => task.id === id);
+
+    console.log(currentSetTaskIndex)
+    console.log(currentSetTask)
+
     const updatedTask = { 
-        ...selectedTask, 
+        ...currentSetTask, 
         text: value,
         creationDateTime: {
             date: `${getCurrentDateTime().day}/${getCurrentDateTime().month}/${getCurrentDateTime().year}`,
@@ -67,23 +72,20 @@ function updateTask (statePlaceholder, id, value) {
     };
     
     const updatedTasks = [
-        ...statePlaceholder.slice(0, updatedTaskIndex),
+        ...statePlaceholder.slice(0, currentSetTaskIndex),
         updatedTask,
-        ...statePlaceholder.slice(updatedTaskIndex + 1)
+        ...statePlaceholder.slice(currentSetTaskIndex + 1)
     ];
 
-    return updatedTasks;
+    return [ ...updatedTasks, ];
 }
 
 // Function to delete tasks
 // ***************************************************************
 function deleteTask (statePlaceholder, id) {
-    const filteredTasks = statePlaceholder.tasks.filter(task => task.id !== id);
+    const filteredTasks = statePlaceholder.filter(task => task.id !== id);
 
-    return {
-        ...statePlaceholder,
-        tasks: filteredTasks,
-    };
+    return [ ...filteredTasks, ];
 }
 
 

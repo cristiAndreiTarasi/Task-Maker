@@ -23,6 +23,7 @@ function App () {
                 tasks={tasks}
                 setTasks={setTasks}
                 currentTask={currentTask}
+                setCurrentTask={setCurrentTask}
             />
 
             <ul className="App_list">

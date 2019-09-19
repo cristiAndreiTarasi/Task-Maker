@@ -1,24 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { createTask, updateTask } from './addEditDelete';
+import { createTask, updateTask } from './C_R_U_D_Functions';
 
-export default function ({ tasks, setTasks, currentTask }) {
+export default function ({ tasks, setTasks, currentTask, setCurrentTask }) {
     const [value, setValue] = useState('');
 
     useEffect(() => currentTask.text ? setValue(currentTask.text) : setValue(''), [currentTask]);
 
     function handleSubmit (e) {
         e.preventDefault();
-        currentTask.text 
-            ? setTasks(updateTask(tasks, currentTask.id, value)) 
-            : setTasks(createTask(tasks, value));
+
+        if (currentTask.text) {
+            setTasks(updateTask(tasks, currentTask.id, value));
+            setCurrentTask({});
+        } 
+        else setTasks(createTask(tasks, value));
+
         setValue('');
     }
 
     return (
-        <form
-            className="App_form"
-            onSubmit={handleSubmit}
-        >
+        <form className="App_form" onSubmit={handleSubmit}>
             <input
                 type="text"
                 className="App_input"
@@ -27,12 +28,7 @@ export default function ({ tasks, setTasks, currentTask }) {
                 onChange={(e) => setValue(e.target.value)}
             />
 
-            <button
-                className="App_form_button"
-                type='submit'
-            >
-                Submit
-            </button>
+            <button className="App_form_button" type='submit'>Submit</button>
         </form>
     );
 };

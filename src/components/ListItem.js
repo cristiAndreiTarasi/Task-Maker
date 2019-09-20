@@ -42,12 +42,13 @@ const ListItem = SortableElement(({ task, tasks, setTasks, currentTask, setCurre
                     </div>
                 </div>
                 ) : null}
+                
+                <div className="divider">
+                    <div className="dark"></div>
+                    <div className="light"></div>
+                </div>
             </div>
 
-            <div className="divider">
-                <div className="dark"></div>
-                <div className="light"></div>
-            </div>
         </li>  
     );
 });

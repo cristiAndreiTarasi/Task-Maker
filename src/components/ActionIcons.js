@@ -25,10 +25,11 @@ export default function ({ task, tasks, setTasks, currentTask, setCurrentTask })
 
                     {/* Make note button */}
                     <li className="menu-item">
-                        <i className="fas fa-sticky-note" onClick={openModal}></i>
+                        <i className="fas fa-file" onClick={openModal}></i>
+                        {/* <i className="fas fa-sticky-note" onClick={openModal}></i> */}
 
                         {/* Modal Window */}
-                        <ModalWindow isOpen={isOpen} closeModal={closeModal} />
+                        <ModalWindow isOpen={isOpen} closeModal={closeModal} task={task} />
                     </li>
                 </>
             )}

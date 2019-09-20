@@ -92,4 +92,3 @@ function addNotes () {
 }
 
 export { createTask, deleteTask, getCurrentTask, updateTask, toggleTasks, addNotes };
-

@@ -25,7 +25,6 @@ function toggleTasks (statePlaceholder, task) {
     return [ ...toggledTasks, ];
 }
 
-
 // Function to create new tasks
 // ***************************************************************
 function createTask (statePlaceholder, currentTaskText) {

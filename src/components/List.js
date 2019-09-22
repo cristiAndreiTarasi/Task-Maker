@@ -4,6 +4,7 @@ import uuid from 'uuidv4';
 import ListItem from './ListItem';
 
 const List = SortableContainer(({ tasks, setTasks, currentTask, setCurrentTask }) => {
+    /* this is the droppable container */
     return (
         <ul className="App_list">
             {tasks.map((task, index) => (

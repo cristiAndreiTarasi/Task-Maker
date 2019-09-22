@@ -7,7 +7,7 @@ export default function ({ isOpen, closeModal, task }) {
     const [isEditable, setIsEditable] = useState(false);
     const editElement = useRef();
 
-    // Function to turn the contenteditable mode to true - edit mode
+     // Function to turn the contenteditable mode to true - edit mode
     // ***************************************************************
     function editNote () {
         editElement.current.contentEditable = true;
@@ -20,8 +20,33 @@ export default function ({ isOpen, closeModal, task }) {
         setNoteText(editElement.current.innerText);
     }
 
+    // Function to transform selection to hypertext - make link
+    // ***************************************************************
+    function addLinkToSelection () {
+        let selectionRange;
+        let textRange;
+
+        if (window.getSelection) {
+            selectionRange = window.getSelection().toString();
+        }
+        else {
+            if (document.selection.type == 'None') {
+                alert ("No content is selected, or the selected content is not available!");
+            }
+            else {
+                textRange = document.selection.createRange ();
+                alert ("The text content of the selection:\n" + textRange.text);
+            }
+        }
+
+        /**
+        * Link to get the make Link code https://jsfiddle.net/JRKwH/1/ 
+        * Document.createRange() - Web APIs 
+        */
+    }
+
     return (
-        <Modal isOpen={!isOpen} onRequestClose={closeModal} modalStyles={modalStyles}
+        <Modal isOpen={isOpen} onRequestClose={closeModal} modalStyles={modalStyles}
             overlayStyles={{backgroundColor: 'rgba(0,0,0,0.2)',}}>
 
             <div className="Modal_body">
@@ -35,8 +60,7 @@ export default function ({ isOpen, closeModal, task }) {
                     <div className="Modal_button_group">
                         <button className="Modal_button_edit_tools"><i class="fas fa-bold"></i></button>
                         <button className="Modal_button_edit_tools"><i class="fas fa-italic"></i></button>
-                        <button className="Modal_button_edit_tools"><i class="fas fa-link"></i></button>
-                        <button className="Modal_button_edit_tools"><i class="fas fa-image"></i></button>
+                        <button className="Modal_button_edit_tools" onClick={addLinkToSelection}><i class="fas fa-link"></i></button>
                         <button className="Modal_button_edit_tools"><i class="far fa-image"></i></button>
                         <button className="Modal_button_edit_tools"><i class="fas fa-list-ul"></i></button>
                         <button className="Modal_button_edit_tools"><i class="fas fa-list-ol"></i></button>

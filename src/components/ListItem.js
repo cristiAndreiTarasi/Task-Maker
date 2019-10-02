@@ -15,15 +15,15 @@ const ListItem = SortableElement(({ task, tasks, setTasks, currentTask, setCurre
                         {/* Drag Handle */}
                         <span className="menu-item" style={{ marginRight: '20px' }}><DragHandle /></span>
 
-                        <input 
-                            type="checkbox" 
-                            checked={task.completed} 
+                        <input
+                            type="checkbox"
+                            checked={task.completed}
                             onChange={() => setTasks(toggleTasks(tasks, task))}
                         />
                         <p className={`App_copy ${task.completed && 'lineThrough'}`}>{task.text}</p>
                     </div>
 
-                    <ActionIcons 
+                    <ActionIcons
                         task={task}
                         tasks={tasks}
                         setTasks={setTasks}
@@ -33,23 +33,25 @@ const ListItem = SortableElement(({ task, tasks, setTasks, currentTask, setCurre
                 </div>
 
                 {!task.completed ? (
-                <div className="status-bar">
-                    <div className="timestamp">
-                        <p>created on
-                        <span> { task.creationDateTime.date } </span> at
-                            <span> { task.creationDateTime.time }</span>
-                        </p>
+                    <div className="status-bar">
+                        <div className="timestamp">
+                            <p>created on
+                            <span> { task.creationDateTime.date } </span> at
+                                <span> { task.creationDateTime.time }</span>
+                            </p>
+                        </div>
                     </div>
-                </div>
                 ) : null}
-                
-                <div className="divider">
-                    <div className="dark"></div>
-                    <div className="light"></div>
-                </div>
-            </div>
 
-        </li>  
+                {tasks.indexOf(task) < tasks.length - 1 && (
+                    <div className="divider">
+                        <div className="dark"></div>
+                        <div className="light"></div>
+                    </div>
+                )}
+
+            </div>
+        </li>
     );
 });
 

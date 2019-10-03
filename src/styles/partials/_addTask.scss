@@ -1,0 +1,19 @@
+
+.App_add_task {
+    color: #727983;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 500px;
+    margin: 0px auto;
+
+    img.plus {
+        cursor: pointer;
+        width: 30px;
+    }
+
+    p.App_copy {
+        color: #727983;
+        margin-left: 10px;
+    }
+}

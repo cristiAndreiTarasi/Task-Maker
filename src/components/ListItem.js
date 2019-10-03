@@ -5,7 +5,7 @@ import { SortableElement, sortableHandle } from "react-sortable-hoc";
 
 const DragHandle = sortableHandle(() => <i className="fas fa-grip-lines" style={{ cursor: 'row-resize', }}></i>);
 
-const ListItem = SortableElement(({ task, tasks, setTasks, currentTask, setCurrentTask }) => {
+const ListItem = SortableElement(({ task, tasks, setTasks, currentTask, setCurrentTask, setIsAddingOrIsUpdating }) => {
     return (
         <li className="App_list_item" key={task.id}>
             <div className='dragHelper'>
@@ -29,6 +29,7 @@ const ListItem = SortableElement(({ task, tasks, setTasks, currentTask, setCurre
                         setTasks={setTasks}
                         currentTask={currentTask}
                         setCurrentTask={setCurrentTask}
+                        setIsAddingOrIsUpdating ={setIsAddingOrIsUpdating}
                     />
                 </div>
 

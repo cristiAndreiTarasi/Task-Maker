@@ -85,15 +85,15 @@ $vendors: 'webkit' 'moz' 'ms' 'o';
 
                 &-item:hover i {
                     transition: all 0.3s ease-in-out;
-                    $icons: 'trash' 'edit' 'thumbtack' 'sticky-note';
+                    $icons: 'trash' 'edit' 'clone' 'file';
                     $colors: 'indianred' 'lightgreen' 'cornflowerblue' 'hotpink';
 
                     @each $icon in $icons {
                         &.fa-#{$icon} {
-                            @if $icon == 'trash' { color: indianred; }
                             @if $icon == 'edit' { color: lightgreen; }
-                            @if $icon == 'thumbtack' { color: cornflowerblue; }
-                            @if $icon == 'sticky-note' { color: hotpink; }
+                            @if $icon == 'clone' { color: cornflowerblue; }
+                            @if $icon == 'file' { color: pink; }
+                            @if $icon == 'trash' { color: indianred; }
                         }
                     }
                 }

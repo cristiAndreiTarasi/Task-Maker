@@ -10,15 +10,16 @@ import List from './List';
 
 function App () {
     /**
-     * tasks array to hold all the created tasks and currentTask object to temporarily 
-     * host the currently selected task's {key: value}, when the editTask function is 
-     * fired the input value will temporarily be the currently selected task's text value.    
+     * tasks array to hold all the created tasks and currentTask object to temporarily
+     * host the currently selected task's {key: value}, when the editTask function is
+     * fired the input value will temporarily be the currently selected task's text value.
      */
     const [tasks, setTasks] = useState([]);
     const [currentTask, setCurrentTask] = useState({});
+    const [isAddingOrIsUpdating, setIsAddingOrIsUpdating] = useState(false);
 
     /**
-     * the onSortEnd function is used to save the order 
+     * the onSortEnd function is used to save the order
      * of the tasks every time they get dragged & dropped.
      */
     function onSortEnd({ oldIndex, newIndex }) {
@@ -28,20 +29,31 @@ function App () {
     return (
         <div className="App">
             <Header />
-            
-            <Form
-                tasks={tasks}
-                setTasks={setTasks}
-                currentTask={currentTask}
-                setCurrentTask={setCurrentTask}
-            />
 
-            <ul className="App_list">
-                <List 
+            {!isAddingOrIsUpdating ? (
+                <div className="App_add_task">
+                    <img
+                        className="plus" src="../../public/images/plus.svg"
+                        onClick={() => setIsAddingOrIsUpdating(true)}/>
+                    <p className="App_copy">Add Task</p>
+                </div>
+            ) : (
+                <Form
                     tasks={tasks}
                     setTasks={setTasks}
                     currentTask={currentTask}
                     setCurrentTask={setCurrentTask}
+                    setIsAddingOrIsUpdating={setIsAddingOrIsUpdating}
+                />
+            )}
+
+            <ul className="App_list">
+                <List
+                    tasks={tasks}
+                    setTasks={setTasks}
+                    currentTask={currentTask}
+                    setCurrentTask={setCurrentTask}
+                    setIsAddingOrIsUpdating={setIsAddingOrIsUpdating}
 
                     onSortEnd={onSortEnd}
                     lockAxis='y'

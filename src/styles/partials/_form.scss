@@ -22,10 +22,10 @@
         }
     }
 
-    .App_form_button {
+    .App_form_button_submit {
         all: unset;
-        background-color: #6b798c;
-        color: #c0cee2;
+        background-color: darken(#63ace5, 10%);
+        color: #f3f8ff;
         font-family: 'Lato', sans-serif;
         padding: 5px 10px;
         border-radius: 2px;
@@ -33,6 +33,20 @@
         transition: all 0.3s ease-in-out;
 
         &:hover {
-            background-color: cornflowerblue;}
+            background-color: darken(#63ace5, 15%);}
+    }
+
+    .App_form_button_update {
+        all: unset;
+        background-color: darken(#88d8b0, 10%);
+        color: #f3f8ff;
+        font-family: 'Lato', sans-serif;
+        padding: 5px 10px;
+        border-radius: 2px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            background-color: darken(#88d8b0, 15%);}
     }
 }

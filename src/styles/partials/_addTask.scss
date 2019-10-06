@@ -1,19 +1,45 @@
 
 .App_add_task {
-    color: #727983;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     width: 500px;
     margin: 0px auto;
 
-    img.plus {
-        cursor: pointer;
-        width: 30px;
+    .add_task_button {
+        color: #727983;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        img.plus {
+            cursor: pointer;
+            width: 30px;
+        }
+
+        p.App_copy {
+            color: #727983;
+            margin-left: 10px;
+        }
     }
 
-    p.App_copy {
-        color: #727983;
-        margin-left: 10px;
+    .message {
+        all: unset;
+        display: flex;
+        align-items: center;
+        height: 40px;
+        font-family: 'Lato', sans-serif;
+        font-weight: 300;
+        border-radius: 2px;
+        padding: 0px 20px;
+    }
+
+    .message-success {
+        background-color: transparentize(#00C851, 0.9);
+        color: transparentize(#fff, 0.5);
+    }
+
+    .message-error {
+        background-color: transparentize(#ff4444, 0.8);
+        color: transparentize(#fff, 0.5);
     }
 }

@@ -23,7 +23,7 @@ $vendors: 'webkit' 'moz' 'ms' 'o';
             @include flexVendors;
 
             justify-content: space-between;
-            padding: 10px 20px;
+            padding: 10px 0px;
             align-items: center;
             height: auto;
             border-radius: 2px;
@@ -40,8 +40,8 @@ $vendors: 'webkit' 'moz' 'ms' 'o';
                     margin: 0px 10px 0px 0px;
                     -webkit-appearance: none;
                     background-color: #fafafa;
-	                  border: 1px solid indianred;
-                    background-color: transparentize(indianred, 0.9);
+	                  border: 1px solid #ff6f69;
+                    background-color: transparentize(#ff6f69, 0.9);
 	                  padding: 9px;
 	                  border-radius: 50%;
                     outline: none;
@@ -50,8 +50,8 @@ $vendors: 'webkit' 'moz' 'ms' 'o';
                 input[type="checkbox"]:checked {
                     margin: 0px 10px 0px 0px;
                     -webkit-appearance: none;background-color: #fafafa;
-	                  border: 1px solid lightgreen;
-                    background-color: transparentize(lightgreen, 0.9);
+	                  border: 1px solid #88d8b0;
+                    background-color: transparentize(#88d8b0, 0.9);
 	                  padding: 9px;
 	                  border-radius: 50%;
                 }
@@ -79,8 +79,8 @@ $vendors: 'webkit' 'moz' 'ms' 'o';
                 justify-content: flex-end;
                 width: 100px;
 
-                &-item {
-                    padding: 0 4px;
+                .menu-item {
+                    padding-left: 8px;
                 }
 
                 &-item:hover i {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ( { value, setValue, handleSubmit }) {
+export default function ({ value, setValue, handleSubmit, currentTask }) {
     return (
         <form className="App_form" onSubmit={handleSubmit}>
             <input
@@ -10,8 +10,9 @@ export default function ( { value, setValue, handleSubmit }) {
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
             />
-
-            <button className="App_form_button" type='submit'>Submit</button>
+            {currentTask.text
+                ? <button className="App_form_button_update" type='submit'>Update</button>
+                : <button className="App_form_button_submit" type='submit'>Submit</button>}
         </form>
     );
 }

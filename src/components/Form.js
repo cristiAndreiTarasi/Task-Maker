@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { createTask, updateTask } from './functionsBase';
 import AddOrUpdateGroup from './AddOrUpdateGroup';
 
-export default function ({ tasks, setTasks, currentTask, setCurrentTask, setIsAddingOrIsUpdating }) {
+export default function ({ tasks, setTasks, currentTask, setCurrentTask, setIsAddingOrIsUpdating, interactionMessage }) {
     /* input dinamyc value */
     const [value, setValue] = useState('');
 
@@ -31,12 +31,14 @@ export default function ({ tasks, setTasks, currentTask, setCurrentTask, setIsAd
             /* and erase the currentTask's properties right after */
             setCurrentTask({});
             setIsAddingOrIsUpdating(false);
+            interactionMessage('message-success', 'Successfuly updated');
         }
         else {
             /* or create a new task */
             setTasks(createTask(tasks, value));
             /* and reset the add boolean as well */
             setIsAddingOrIsUpdating(false);
+            interactionMessage('message-success', 'Successfuly added a new task');
         }
 
         /* and clear the input field */
@@ -45,6 +47,6 @@ export default function ({ tasks, setTasks, currentTask, setCurrentTask, setIsAd
     }
 
     return (
-        <AddOrUpdateGroup handleSubmit={handleSubmit} value={value} setValue={setValue} />
+        <AddOrUpdateGroup handleSubmit={handleSubmit} value={value} setValue={setValue} currentTask={currentTask} />
     );
 };

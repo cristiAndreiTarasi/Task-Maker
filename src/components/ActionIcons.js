@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { deleteTask, getCurrentTask, addNotes } from './functionsBase';
 import ModalWindow from './ModalWindow';
 
-export default function ({ task, tasks, setTasks, currentTask, setCurrentTask, setIsAddingOrIsUpdating }) {
+export default function ({ task, tasks, setTasks, currentTask, setCurrentTask, setIsAddingOrIsUpdating,interactionMessage }) {
     const [isOpen, setIsOpen] = useState(false);
     const openModal = useCallback(() => setIsOpen(true), []);
     const closeModal = useCallback(() => setIsOpen(false), []);
@@ -40,7 +40,12 @@ export default function ({ task, tasks, setTasks, currentTask, setCurrentTask, s
 
             {/* Delete button */}
             <li className="menu-item">
-                <i className="fas fa-trash" onClick={() => setTasks(deleteTask(tasks, task.id))}></i>
+                <i className="fas fa-trash" onClick={() => {
+                    setTasks(deleteTask(tasks, task.id)),
+                    setCurrentTask({}),
+                    setIsAddingOrIsUpdating(false),
+                    interactionMessage('message-success', `${task.text.toUpperCase()}`, 'SUCCESSFULLY DELETED');
+                }}></i>
             </li>
         </ul>
     );

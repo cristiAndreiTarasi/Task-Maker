@@ -1,5 +1,5 @@
 // npm imports
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { hot } from 'react-hot-loader/root';
 import { arrayMove } from "react-sortable-hoc";
 
@@ -25,9 +25,9 @@ function App () {
      */
     const onSortEnd = ({ oldIndex, newIndex }) => setTasks(arrayMove(tasks, oldIndex, newIndex));
 
-    const interactionMessage = (classname, message) => {
-        setInfo({ classname, message });
-        setTimeout(() => setInfo({}), 2000);
+    const interactionMessage = (classname, taskname, message) => {
+        setInfo({ classname, taskname, message });
+        setTimeout(() => setInfo({}), 3000);
     };
 
     return (
@@ -43,7 +43,13 @@ function App () {
                         <p className="App_copy">Add Task</p>
                     </div>
                         
-                    <div className={`message ${info.classname}`}>{info.message}</div>
+                    <div className={`message ${info.classname}`}>
+                        <span style={{ 
+                            color: '#00C851', 
+                            fontWeight: 'bold' }}>
+                                {info.taskname} &nbsp;
+                        </span> {info.message}
+                    </div>
                 </div>
             ) : (
                 <Form
@@ -51,8 +57,8 @@ function App () {
                     setTasks={setTasks}
                     currentTask={currentTask}
                     setCurrentTask={setCurrentTask}
-                    setIsAddingOrIsUpdating={setIsAddingOrIsUpdating}
                     interactionMessage={interactionMessage}
+                    setIsAddingOrIsUpdating={setIsAddingOrIsUpdating}
                 />
             )}
 
@@ -62,6 +68,7 @@ function App () {
                     setTasks={setTasks}
                     currentTask={currentTask}
                     setCurrentTask={setCurrentTask}
+                    interactionMessage={interactionMessage}
                     setIsAddingOrIsUpdating={setIsAddingOrIsUpdating}
 
                     onSortEnd={onSortEnd}

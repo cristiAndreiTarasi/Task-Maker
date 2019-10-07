@@ -38,6 +38,9 @@ function createTask (statePlaceholder, currentTaskText) {
         }
     };
 
+    if (!newTask.text) return statePlaceholder;
+    if (statePlaceholder.findIndex(t => t.text === newTask.text) > -1) return statePlaceholder;
+    
     return [ ...statePlaceholder, newTask ];
 }
 

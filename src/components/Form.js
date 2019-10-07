@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 // references to functions defined in functionsBase.js
 import { createTask, updateTask } from './functionsBase';
 import AddOrUpdateGroup from './AddOrUpdateGroup';
@@ -31,14 +31,17 @@ export default function ({ tasks, setTasks, currentTask, setCurrentTask, setIsAd
             /* and erase the currentTask's properties right after */
             setCurrentTask({});
             setIsAddingOrIsUpdating(false);
-            interactionMessage('message-success', 'Successfuly updated');
+            interactionMessage('message-success', `${value.toUpperCase()}`, 'SUCCESSFULLY UPDATED');
         }
         else {
             /* or create a new task */
             setTasks(createTask(tasks, value));
             /* and reset the add boolean as well */
             setIsAddingOrIsUpdating(false);
-            interactionMessage('message-success', 'Successfuly added a new task');
+            
+            if (!value) interactionMessage('message-error', ``, 'CANNOT ADD EMPTY TASKS');
+            else if (tasks.findIndex(t => value === t.text) > -1) interactionMessage('message-error', ``, 'CANNOT ADD DUPLICATE TASKS');
+            else interactionMessage('message-success', `${value.toUpperCase()}`, 'SUCCESSFULLY ADDED');
         }
 
         /* and clear the input field */
@@ -47,6 +50,11 @@ export default function ({ tasks, setTasks, currentTask, setCurrentTask, setIsAd
     }
 
     return (
-        <AddOrUpdateGroup handleSubmit={handleSubmit} value={value} setValue={setValue} currentTask={currentTask} />
+        <AddOrUpdateGroup 
+            handleSubmit={handleSubmit} 
+            value={value} 
+            setValue={setValue} 
+            currentTask={currentTask} 
+        />
     );
 };

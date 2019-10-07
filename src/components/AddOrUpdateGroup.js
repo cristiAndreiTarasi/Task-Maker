@@ -1,12 +1,13 @@
 import React from 'react';
 
-export default function ({ value, setValue, handleSubmit, currentTask }) {
+export default function ({ value, setValue, handleSubmit, currentTask, input }) {
     return (
         <form className="App_form" onSubmit={handleSubmit}>
             <input
                 type="text"
                 className="App_input"
                 placeholder="Type Task"
+                ref={input}
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
             />

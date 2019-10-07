@@ -3,7 +3,7 @@ import { SortableContainer } from "react-sortable-hoc";
 import uuid from 'uuidv4';
 import ListItem from './ListItem';
 
-const List = SortableContainer(({ tasks, setTasks, currentTask, setCurrentTask, setIsAddingOrIsUpdating }) => {
+const List = SortableContainer(({ tasks, setTasks, currentTask, setCurrentTask, setIsAddingOrIsUpdating, interactionMessage }) => {
     /* this is the droppable container */
     return (
         <ul className="App_list">
@@ -17,6 +17,7 @@ const List = SortableContainer(({ tasks, setTasks, currentTask, setCurrentTask, 
                     currentTask={currentTask}
                     setCurrentTask={setCurrentTask}
                     setIsAddingOrIsUpdating={setIsAddingOrIsUpdating}
+                    interactionMessage={interactionMessage}
                 />
             ))}
         </ul>

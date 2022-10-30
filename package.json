@@ -23,7 +23,7 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.27.10",
     "css-loader": "^3.2.0",
     "error-overlay-webpack-plugin": "^0.4.1",
     "html-loader": "^0.5.5",
